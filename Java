@@ -1,1 +1,65 @@
+package javapro_profess;
 
+public class DataType {
+	public static void main(String[] args) {
+		/*
+		 * 자바의 Date Type(자료형): 크게 2가지로 나뉘고 다시 세분화 되어진다.
+		 * 1. Primitive Type (원시자료형) : 문자(char), 숫자(정수,실수), 손리(boolean)
+		 * 2. Reference Type (객체형) 객체타입의 데이터이다.. 여러분이 돈을 내고 배우로 오는 애임..
+		 * 대표적인 예가 문자열을 나타내는 string이다. 앞으로 데이터 타입의 첫 문자가 대문자이면
+		 * 무조건 R type (Reference Type) 이구나 생각하세요
+		 * 
+		 */
+		// 변수 선언.. 앞으로 이 타입의 변수를 사용하겠다는 의미 .. 값은 없이 타입과 변수명만 선언함 (Declaration)
+		// 꼭 기억 할 것!! 자바는 블락 내에서 선언 된 변수는 절대 중복 선언 되어선 안됩니다.
+		// 또한 처음 선언이 될땐 반드시 변수명 앞에 타입을 선언 해야 합니다.(P or Rtype)
+		//메인 메서드 내에서 선언만 된 변수를 출력문에 사용하면 에러입니다.
+		//모든 선언, 대입, 초기화 구문 끝에는 반드시 ; 해야합니다.
+		
+		byte b;//b 변수선언..
+		short s,r; // 같은 타입의 변수는 , 를 기준으로 나란히 선언가능
+		int i;
+		
+		// 변수 대입은 = 을 이용해서 값을 넣어준다.
+		b =1;
+		s =2;
+		r =3;
+		i = 4;
+		
+		//변수 초기화(Initialized) :변수 선언과 동시에 값을 초기화 하는 것.. 
+		long lo = 10L; //Long 형은 값 끝에 대문자 L을 표기한다.
+		
+		int bb = b + 1;//리터럴값인 1은 int로 메모리가 만들어지기 때문에 연산 결과는 int 이다.(연산자 
+		// +, =) 타입을 확인해서 값을 큰것으로 바꿔줌
+		
+		bb = (int)(bb + lo);//type casting(큰 타입을 작은 타입으로 변화시키는 것)
+		bb = bb + (int)lo;
+		
+		s = b;// Promotion 작은 것을 큰 곳으로 
+		
+		System.out.println(bb);
+		System.out.println(s);
+		System.out.println(bb + s);
+		
+		
+		float f = 3.14F; 
+		float lo1 = lo + f;
+		float lo2 =(float)(lo1 + 1.0);
+		
+		System.out.println(f);
+		System.out.println(lo1);
+		System.out.println(lo2);
+		/*
+		 * 
+		 * 여러분이 과수원을 한다고 가정하고, 사과5개, 배 7개, 오렌지 3개를 하루에 총 생산한다고 가정합니다.
+		 * 위 값을 기준으로 하루에 시간당 몇 개를 생산하는지 출력시키세요
+		 * 조건 1 : 반드시 변수를 사용할 것
+		 * 조건 2 : 반드시 한번의 캐스팅을 사용할 것.
+		 * 조건 3 : 리터럴 데이터는 한번은 사용할것. (옵션)
+		 * 조건 4 : 결과값은 반드시 실수여야 합니다. 시간당. ex) 0.66
+		 * class 이름은 Fruits
+		 *
+		 * 
+		 */
+	}
+}
