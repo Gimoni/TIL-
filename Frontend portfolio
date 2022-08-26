@@ -1,4 +1,3 @@
-C:\Users\jinhe\Desktop\Jinny\Frontend\Korea IT\Gimoni\project\portfolio\index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +10,12 @@ C:\Users\jinhe\Desktop\Jinny\Frontend\Korea IT\Gimoni\project\portfolio\index.ht
 <style>
     div {
         background-color: none;
+        min-height: 1000px"
     }
 </style>
 <body style="min-height: 1000px">
-    
-    
+
+
             <!-- NAVIGATION  -->
 
     <div class="sticky top-0 w-full z-10 bg-black">
@@ -42,14 +42,14 @@ C:\Users\jinhe\Desktop\Jinny\Frontend\Korea IT\Gimoni\project\portfolio\index.ht
             font-weight: 900;
         }
         form {
-            border: 1px solid #ddd;
+            /* border: 1px solid #ddd; */
             max-width: 150px;
             margin: 50px auto 0;
             padding: 0.5rem;
-          
+
         }
         label {
-           
+
             display: block;
             font-weight: 700;
         }
@@ -74,7 +74,7 @@ C:\Users\jinhe\Desktop\Jinny\Frontend\Korea IT\Gimoni\project\portfolio\index.ht
         }
         .flex {
             display: flex;
-         
+
         }
         .justify-between {
             justify-content: space-between;
@@ -82,17 +82,19 @@ C:\Users\jinhe\Desktop\Jinny\Frontend\Korea IT\Gimoni\project\portfolio\index.ht
         .items-center {
             align-items: baseline;
         }
-        /* @media [min-width::placeholder] {
-            .h1 .form .label .input .mb-2 .btn .flex .justify-between .items-center
-        } */
+        /* @media [min-width:640px] { */
+            /* .h1 .form .label .input .mb-2 .btn .flex .justify-between .items-center */
+        /* } */
 
         </style>
-    <div class="fixed top-0 left-0 bottom-0 w-60 border-r bg-green-600 hidden lg:block">
-        <form action="">
-            <h1>Login</h1>
-            <div class="margin-bottom-0.2rem bg-green-600">
+        /* <div class="fixed top-0 left-0 bottom-0 w-60 border-r bg-green-600 hidden lg:block">
+                <form action="">  */
+                    
+                    <h1>Login</h1>
+                    <br>
+                    <div class="margin-bottom-0.2rem bg-green-600">
                     <label for="">Username</label>
-                    <input type="text" autocomplete="off">
+                    <input type="text" placeholder="E-mail or ID" autocomplete="off">
                 </div>
                 <div class="margin-bottom-0.2rem bg-green-600">
                     <label for="">Password</label>
@@ -100,48 +102,26 @@ C:\Users\jinhe\Desktop\Jinny\Frontend\Korea IT\Gimoni\project\portfolio\index.ht
                 </div>
                 <div class="flex justify-between items-center bg-green-600">
                     <button class="btn">Sign In</button>
-                    <a href="">Forgot password</a>
+                    <a href="">Forgot <br> password</a>
                 </div>
             </form>
     </div>
 
     <!--MAIN-->
 
-    <div class="max-w-5xl lg:ml-60 pt-5 px-5" style="min-height: 1000px">
 
-        <div class="bg-orange-100 border-1-4 border-orange-500 text-orange-700 p-4 mb-5">
-            <p class="font-bold">Be Warned</p>    
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae ea necessitatibus autem aliquam at officiis officia molestias sapiente deleniti quasi, nesciunt qui animi blanditiis unde corporis explicabo labore reprehenderit adipisci.
-            </p>
-        </div>
-
-        <div class="mb-5">
-            <h1 class="text-3xl">Dashboard</h1>
-        </div>
-
-        <div class="mb-1 flex justify-end">
-            <div class="relative group">
-                <button class="border p-2 bg-gray-600 text-white hover:bg-gray-700">Dropdown</button>
-                <div class="absolute right-0 w-48 bg-white shadow hidden group-hover:block">
-                    <a href="#" class="block p-2 hover:bg-gray-100">Menu</a>
-                    <a href="#" class="block p-2 hover:bg-gray-100">Menu</a>
-                    <a href="#" class="block p-2 hover:bg-gray-100">Menu</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-1 gap-4 h-96">
-            <div class="row-span-2 col-span-2 border ">1</div>
-            <div class="border">2</div>
-            <div class="border">1</div>
-        </div>
     <!-- Contents -->
 
 
     <!-- Footer-->
+    <style>
+        
+    </style>
+
+    <div class="text-center border-t border-bottom-width-2rem border-color-green">
+        <h4 class="text-sm py-3">DJ log 2022</h4>
+        </div>
 
 
-    
 </body>
 </html>
