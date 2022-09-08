@@ -481,3 +481,322 @@ function f2() {
 f1(function() { // 익명함수가 callback이다.
     return f2()
 })
+function f1(cb) {
+    let r = cb()
+    console.log(r);
+}
+
+function f2() {
+    return "foo";
+}
+
+// f1(f2());
+
+f1(f2);
+
+function f(callback) {
+    //f함수 내부에서 callback함수를 실행
+    let r = callback()
+    console.log(r);
+}
+
+//callback이 익명함수 일때
+f(function (){
+    return "foo"
+})
+
+callback에 인자가 있을 때
+function f1(callback) {
+    let r = callback()
+    console.log(r)
+}
+
+function f2(a, b){
+    return a + b;
+}
+
+// f1(f2(1, 2));
+f1(function() {
+    return f2(1, 2)
+})
+
+function f1(callback) {
+    var r = callback(1, 2);
+    console.log(r);
+}
+
+function f2(a, b){
+    return a + b;
+}
+
+f1(function (x, y) {
+    return f2(x, y);
+})
+
+# 변수의 종류
+var, let, const
+
+var
+변수를 선언하고 값(value)을 정의한다.
+var foo = "bar"
+console.log(foo);
+
+var foo; //선언
+foo = "bar"; // 정의
+
+console.log(foo);
+
+var  foo; // 선언
+foo = "bar"; // 정의
+foo = "baz" // 다시 정의
+
+console.log(foo);
+
+var foo = "bar" //선언, 정의 
+var foo = "baz" // 재선언, 재정의
+
+console.log(foo);
+
+ㅣet 
+let foo = "bar"; //초기화
+console.log(foo);
+
+let foo; //선언
+foo = "bar"; // 정의
+
+console.log(foo);
+
+let foo; //선언
+foo = "bar"; //정의
+foo = "baz" // 다시 정의
+
+console.log(foo);
+
+let foo = "bar"; // 선언  
+let foo = "baz"; // 재선언 불가
+
+console.log(foo);
+
+const (constant, 상수)
+
+const foo = "bar"; // 선언 및 정의 (초기화)
+console.log(foo)
+
+const foo; //선언
+foo = "bar"; // 정의 따로 불가
+
+console.log(foo);
+const는 항상 선언과 정의를 함께 (초기화 필수.)
+
+const foo = "bar";
+const foo = "baz"; //재선언 불가
+
+console.log(foo);
+
+# 변수의 범위 (scope)
+전역 범위 : 함수나 블록 밖에서 선언된 변수의 범위
+블록 범위 : 블록 안에서 선언된 변수의 범위
+함수(지역)범위 : 함수 안에서 선언된 변수의 범위
+
+전역범위 (global scope)
+const foo ="bar";
+
+f();
+function f(){
+    // 함수 내부에서 정역변수에 접근 가능
+    console.log(foo);
+}
+
+{   // block (조건문, 반복문)
+    // 블록 내부에서 전역변수에 접근 가능
+    console.log(foo);
+}
+
+// 함수, 블록이 아닌 범위에서 전역변수에 접근 가능
+console.log(foo)
+
+함수 (지역) 범위
+
+f()
+function f() {
+    // 함수(지역) 범위를 갖는 변수
+    let foo = "bar";
+    
+    //함수 내부에서 접근 가능
+    console.log(foo);
+}
+
+//함수 외부에서 지역변수에 접근 불가
+console.log(foo); // foo is not defined
+
+블록 범위 (block)
+{
+    var foo = "foo";
+    let bar = "bar";
+    const baz = "baz"
+}
+
+console.log(foo) // ok
+console.log(bar) //error
+console.log(baz) //error
+
+함수의 범위
+전역 범위 : 블록 또는 함수 외부에서 선언된 함수의 범위
+블록 범위 : 블록 안에서 선언된 함수의 범위
+함수(지역) 범위 : 함수 안에서 선언된 함수의 범위
+
+function f() {}
+
+// 블록 또는 함수 외부에서 접근
+console.log(f);
+
+// 블록 내부에서 접근
+{ console.log(f); }
+
+// 함수 내부에서 접근
+x()
+function x() {
+    console.log(f)
+}
+
+f1()
+function f1() {
+    //지역범위를 갖는 함수
+    function f2() {}
+    console.log(f2);
+}
+
+console.log(f2); //error
+
+{
+    function f() {}
+}
+
+console.log(f); // ok
+
+Q. 콘솔에 현재시간을 알려주는 시계를 만들어보세요.
+setInterval(callback, ms)
+ms간격으로 callback 실행
+1s = 1000ms
+console.log(new Date().toLocaleTimeString());
+
+
+setInterval(function (){
+    let time = new Date(). toLocaleTimeString();
+    console.log(time);
+}, 1000)
+
+## Array (배열)
+한 개 이상의 값을 가진 상태
+
+let arr = [10, 20, 30];
+
+console.log(arr);
+// 배열의 0번째 (index) valued에 접근
+console.log(arr[0]) //10
+console.log(arr[2]) //30
+console.log(arr.length) // 배열의 value의 갯수
+
+let arr = ["foo", 20, "baz"];
+
+console.log(arr); 
+ 
+update
+arr[1] = "bar"
+console.log(arr);
+
+add
+arr[3] = 40;
+console.log(arr);
+
+반복문으로 Array 순회하기
+
+let arr = ["foo", "bar", "baz"];
+
+for (let i=0; i<arr.length; i++) {
+    console.log(arr[i])
+}
+
+Q. 1부터 10까지의 순자로 이루어진 배열을 만들어보세요.
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (let i=0; i<arr.length; i++) {
+    console.log(arr[i])
+}
+
+let arr = [];
+
+for (let i=0; i<10; i++) {
+    arr[i] = i+1;
+}
+
+console.log(arr);
+
+# Object (객체)
+관련된 데이터와 함수의 집합
+
+const cat = {
+    // key(property,속성) : value
+    name: "Kitty",
+    age: 2,
+    home: null,
+    //value 가 함수인 것을 메서드 (method)라고 부른다.
+    sound: function() {
+        return "meow";
+    }
+}
+
+// 객체에 접근
+console.log(cat);
+//cat의 name속성에 접근
+console.log(cat.name);
+//cat의 age속성에 접근
+console.log(cat.age);
+//cat의 존재하지 않는 속성
+console.log(cat.color); // undefined
+//string을 사용해서 cat의 home 속성에 접근
+console.log(cat["home"]) //null
+//cat의 sound 메서드에 접근
+console.log(cat.sound()) 
+
+객체를 업데이트하기
+
+const cat = {
+    name: "Kitty",
+    age: 2,
+    home: null,
+    sound: function() {
+        return "meow";
+    }
+}
+
+// cat의 home 속성값 변경
+cat.home = "Mapo-gu";
+console.log(cat);
+
+//cat의 age속성 삭제
+delete cat.age;
+console.log(cat);
+
+//cat에 새로운 속성 color 추가
+cat.color = "Mixed"
+console.log(cat)
+
+Q. 숫자를 대입하면 4칙연산의 결과값을 return하는 함수를 만들어보세요.
+
+function calc(a, b) {}
+
+
+
+function calc(a, b) {
+    return {
+        add: a + b,
+        substract: a - b,
+        multiply: a * b,
+        divide:  a / b 
+    }
+}
+
+let r = calc(1,2);
+console.log(r)
