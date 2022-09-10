@@ -2,8 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <link href="style.css" rel="stylesheet" />
+
         <title>The Basic Language of the web:HTML</title>
     </head>
+
     <body>
         <!-- 
         <h1>The Basic Language of the web:HTML</h1>
@@ -13,7 +16,7 @@
         <h5>The Basic Language of the web:HTML</h5>
         <h6>The Basic Language of the web:HTML</h6>
         -->
-        <header>
+        <header class="main-header">
         <h1>📘 The Code Magazine</h1>
         
         <nav>
@@ -22,6 +25,8 @@
             <a href="#">Flexbox</a>
             <a href="#">CSS Grid</a>
         </nav>
+
+        <p>Test paragraph</p>
         </header>
 
         <article>
@@ -34,7 +39,7 @@
                 width="50" 
                 height="50"/>
 
-            <p>Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027</p>
+            <p id="author">Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027</p>
 
             <img 
                 src="img/post-img.jpg" 
@@ -115,7 +120,7 @@
                     </ul>
             </header> -->
             <h4>Related posts</h4>
-            <ul>
+            <ul class="related">
                 <li>
                     <img 
                         src="img/related-1.jpg" 
@@ -123,7 +128,7 @@
                         width="75" 
                         height="75"/>
                     <a href="#">How to Learn Web Development</a>
-                    <p>By Jonas Schmedtmenn</p>
+                    <p class="related-author">By Jonas Schmedtmenn</p>
                 </li>
                 <li>
                     <img 
@@ -132,7 +137,7 @@
                         width="75"
                         height="75"/>
                     <a href="#">The Unknown Power of CSS</a>
-                    <p>By Jim Dillon</p>
+                    <p class="related-author">By Jim Dillon</p>
                 </li>
                 <li>
                     <img 
@@ -141,13 +146,14 @@
                     width="75"
                     height="75"/>
                     <a href="#">Why JavaScript is Awesome</a>
-                    <p>By Matilda</p>
+                    <p class="related-author">By Matilda</p>
                 </li>
             </ul>
         </aside>
 
         <footer>
-            Copyright &copy; 2027 by The Code
+            <p id="copyright">Copyright &copy; 2027 by The Code Magazine.
+            </p>
         </footer>
     </body>
 </html>
