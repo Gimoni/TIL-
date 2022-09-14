@@ -800,3 +800,332 @@ function calc(a, b) {
 
 let r = calc(1,2);
 console.log(r)
+
+# Object (객체)
+관련된 데이터와 함수의 집합
+
+const cat = {
+    // key(property,속성) : value
+    name: "Kitty",
+    age: 2,
+    home: null,
+    //value 가 함수인 것을 메서드 (method)라고 부른다.
+    sound: function() {
+        return "meow";
+    }
+}
+
+// 객체에 접근
+console.log(cat);
+//cat의 name속성에 접근
+console.log(cat.name);
+//cat의 age속성에 접근
+console.log(cat.age);
+//cat의 존재하지 않는 속성
+console.log(cat.color); // undefined
+//string을 사용해서 cat의 home 속성에 접근
+console.log(cat["home"]) //null
+//cat의 sound 메서드에 접근
+console.log(cat.sound()) 
+
+객체를 업데이트하기
+
+const cat = {
+    name: "Kitty",
+    age: 2,
+    home: null,
+    sound: function() {
+        return "meow";
+    }
+}
+
+// cat의 home 속성값 변경
+cat.home = "Mapo-gu";
+console.log(cat);
+
+//cat의 age속성 삭제
+delete cat.age;
+console.log(cat);
+
+//cat에 새로운 속성 color 추가
+cat.color = "Mixed"
+console.log(cat)
+
+Q. 숫자를 대입하면 4칙연산의 결과값을 return하는 함수를 만들어보세요.
+
+function calc(a, b) {}
+
+
+
+function calc(a, b) {
+    return {
+        add: a + b,
+        substract: a - b,
+        multiply: a * b,
+        divide:  a / b 
+    }
+}
+
+let r = calc(1,2);
+console.log(r)
+
+
+
+# 에러와 에러처리
+
+app crashed
+false()
+f()
+
+try catch 구문을 이용한 에러 처리
+
+try {
+    //try 코드를 작성한다.
+    f();
+} catch (err) {
+    //에러가 발생할 경우 catch 블록에서 처리한다 /
+    console.error(err)
+}
+
+try {
+    // SyntaxError(문법에러)는 compile 에러를 발생한다.
+    // compile : 컴파일러가 코드를 실행시키기 위해서 읽는 단계
+    // try catch에서 compile에러는 처리할 수 없다.
+    f();
+} catch (err) {
+    console.error(err)
+}
+
+error 객체의 종류
+RangerError
+ReferenceError
+SyntaxError
+TypeError
+URREError
+
+error 객체의 속성 (property)
+name
+message
+stack
+
+try {
+    f();
+} catch (err) {
+    console.error("name",err.name); // ReferenceError
+    console.error("message",err.message); // F is not defined
+    // console.error("stack",error.stack)
+}
+
+RangeError
+
+try {
+    const pi = Math.PI;
+
+    console.log(pi); //pi 무한 javascript에서는 15자리까지가 출력이됨. 
+
+    //RangeError : 값이 정해진 범위를 벗어났을 때 발생한다.
+    //toPrecision() 인자는 1에서 100 사이어야 한다. 
+    console.log(pi.toPrecision(100))
+} catch (err) {
+    console.error(err)
+}
+
+ReferenceError
+
+try{
+    //ReferenceError
+    //존재하지 않은 변수를 참조(refer)했을 때 발생한다.
+    console.log(x);
+} catch (err) {
+    console.error(err)
+} // ReferenceError : x is not defined
+
+SyntaxError
+
+try {
+    //SyntaxError (문법에러)
+    //SyntaxError는 컴파일 에러를 발생시킨다. 
+    console.log(2022)) //빨간색으로 문법에러 표시 ..: SyntaxError임.
+} catch (err) {
+    console.err(err)
+}
+
+TypeError
+
+try{
+    //TypeError (타입에러)
+    //값이 예상된 타입이 아닐 때 발생한다.
+
+    //setInterval(callback, ms)
+    //TypeError: callback은 함수여야 한다. null을 전달받았다.
+    setInterval(null,1000)
+} catch (err) {
+    console.error(err);
+}
+
+URIError
+
+try{
+    //URIError: URI malformed (URI가 잘못 형성되었다.)
+    decodeURI("%"); //아스키 언어가 아닌것들은 퍼센트 헥스16진수 등으로 나타내짐..;;?
+} catch (err) {
+    console.err(err);
+} //Uncaught TypeError: console.err is not a function
+
+커스텀 에러 객체(Object)로 커스텀 에러 발생시키기
+
+try {
+    const foo = "baz";
+
+    if (foo!=="bar") {
+        const err = {
+            //커스텀 에러 객체를 생성한다. Make CustomErrorObject
+            name: "CustomError",
+            message: "bar만 가능합니다."
+        }
+
+        //커스텀 에러 객체를 throw한다.
+        throw err;
+    }
+} catch (err) {
+    console.error(err)
+} // {name:'CustomError', massage: 'bar만 가능합니다.'
+
+
+
+## try catch finally
+
+try {
+    console.log("foo")
+} catch (err) {
+    console.error(err)
+} finally {
+    //에러 발생 유무와 상관없이 항상 실행된다.
+    console.log(".")
+}
+
+Q. 15살 소녀가 CU에서 술을 사려고 한다
+커스텀 에러를 발생시켜서 (어른으로서) 이 상황을 중단시켜 보세요.
+
+Jinny
+try {
+    const foo = "Over19";
+
+    if (foo!=="over19") {
+        const err = {
+
+            name: "CunstomError",
+            message: "over19 can buy the bottle of soju."
+        }
+
+        throw err;
+    }
+} catch(err) {
+    console.err(err)
+} 
+
+try {
+    const age = 15;
+
+    console.log("15 years old girl is going to buy a bottle of soju..")
+
+    if (age < 18) {
+        //커스텀 에러객체 생성..
+        const err = {
+            name:"Sorry",
+            message:"you are not available to buy this one."
+        }
+
+        //커스텀 여러 객체를 throw 한다.
+        throw err;
+    }
+
+    //throw 밑에 코드는 실행되지 않는다.
+    console.log("YAy! Sucess to buy soju. ")
+
+} catch (err) {
+    console.error(err)
+}
+
+
+app crached
+throw "Error!" //Uncaught Error! 
+
+# class
+객체 생성을 위한 템플릿
+
+class Cat { // 첫 글자는 대문자여야 한다
+    
+    // Constructor (생성자)
+    // 인스턴스를 생성하자마자 실행되는 특별한 메서드
+    // constructor는 아무것도 return 할 수 없다.
+    // 인스턴스의 초기 속성을 설정하는데 주로 사용한다.
+    constructor(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+//cat1은 object이다
+//cat1은 Cat의 인스턴스다
+const cat1 = new Cat("kitty", 2);
+
+//cat2은 object이다
+//cat2은 Cat의 인스턴스다
+const cat2 = new Cat("Alfredo", 3);
+
+console.log(cat1)
+console.log(cat2)
+
+console.log(cat1 instanceof Cat) // true
+console.log(cat2 instanceof Cat) // true
+
+class 의 속성과 메서드
+
+mapogu cat templit 
+class MapoguCat{
+    constructor(name) {
+        this.name = name;
+    }
+
+    // MapoguCat의 속성
+    home ="Mapo-gu";
+
+    // MapoguCat의 메서드
+    sound(){
+        return "Meow"
+    }
+}
+
+const cat = new MapoguCat("kitty")
+
+console.log(cat)
+//MapoguCat의 home속성을 상속(inheritance)받았다.
+console.log(cat.name); //Mapo-gu
+//MapoguCat의 sound메서드를 상속받았다.
+console.log(cat.sound()) //Meow
+
+// Q. 삼산동에 살고있는 하얀색 말티즈를 생성하기 위한 템플릿을 작성해보세요.
+
+//Samsan-dong Maltese
+class SamsandongMaltese{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+    //Samsan-dongMaltese의 속성 메서드
+    home = "Samsan-dong"
+    color = "white"
+
+    // Samsan-dongMaltese의 메서드
+    sound(){
+        return "Whal!"
+    }
+}
+
+const maltese = new SamsandongMaltese("babe",2)
+
+console.log(maltese)
+console.log(maltese.name)
+console.log(maltese.sound)
