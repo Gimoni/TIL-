@@ -1,0 +1,31 @@
+* {
+    font-style: bold;
+}
+
+body {
+    border: solid #444;
+
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 900;
+}
+
+p:first-child {
+    /* font-weight: 1000; */
+}
+
+p:nth-child(2) {
+    text-transform: uppercase;
+    /* font-weight: 200; */
+    font-size: small;
+}
+
+p:last-child {
+    font-style: bold;
+    font-style: sans-serif;
+    font-size: 20px;
+}
