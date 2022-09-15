@@ -1,12 +1,13 @@
-h1, 
-h2,
-h3, 
-h4, 
-p, 
-li {
-    font-family: sans-serif;
+* {
+    /* border-top: 10px solid #1098ad; */
+} /*Universal selector*/
+
+body {
     color: #444;
-}
+    font-family: sans-serif;
+
+    border-top: 10px solid #1098ad;
+} 
 
 h1, 
 h2,
@@ -147,7 +148,14 @@ a:active {
 
 footer p {
     color: green;
-} 
+} */
 
-Resolving comflicting Declarations 
-highest priority to lowest priority */
+/* nav a:link,
+nav p {
+    font-size: 18px;
+} */
+
+nav {
+    font-size: 18px;
+}
+
