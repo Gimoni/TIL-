@@ -132,3 +132,22 @@ a:active {
 
 /* LVHA */
 
+/* Resolving conflicts */
+/* #copyright {
+    color: red;
+}
+
+.copyright {
+    color: blue;
+}
+
+.text {
+    color: yellow;
+}
+
+footer p {
+    color: green;
+} 
+
+Resolving comflicting Declarations 
+highest priority to lowest priority */
