@@ -1490,7 +1490,7 @@
 //     { name: "Asahi", origin: "Japan"},
 // ]
 
-// const [DeutchBeer, KoreanBeer, IrishBeer, JapaneseBeer] = beers;
+// const [DutchBeer, KoreanBeer, IrishBeer, JapaneseBeer] = beers;
 
 // console.log(IrishBeer);
 
@@ -1563,3 +1563,235 @@
 // const [Heineken, Kloud, Guinness, Asahi] = origins;
 
 // console.log(Kloud)
+
+// # Spread Syntax (전개 구문)
+// Array : Array의 item을 간단하게 복사 할 수 있다.
+// Object : Object의 속성을 간단하게 복사 할 수 있다.
+// ...
+
+
+
+// Array 
+// push()
+
+//*
+// const arr = ["foo", "bar"];
+// const r = [...arr, "baz"]
+// console.log(r);
+
+//* concat(): concatenation(연결)
+// const arr1 = ["foo", "bar"];
+// const arr2 = ["baz"];
+
+// const r = [...arr1, ...arr2];
+
+// console.log(r)
+
+//*
+// const arr1 = ["foo", "bar"];
+// const arr2 = ["baz"];
+
+// const r = [...arr1, ...arr2];
+
+// console.log(r)
+
+//*
+// const arr = ["foo", "bar", "baz"];
+
+// const [item0, ...rest] = arr;
+// console.log(item0) // foo
+// console.log(rest) // ['foo', 'baz'] 
+// console.log(arr) // ['foo', 'bar', 'bar']
+
+// Q. Spread 문법을 사용하여 일본 맥주를 추가해 보세요
+// const beers = [
+//     {name: "Heineken", origin: "Netherlands"},
+//     {name: "Kloud", origin: "S.Korea"},
+//     {name: "Guinness", origin: "Ireland"}
+// ]
+
+// const japaneseBeer = {name: "Asahi", origin: "Japan"};
+
+// //*
+// const r = [...beers, japaneseBeer]
+
+// console.log(r)
+
+// //*
+// console.log([...beers, japaneseBeer]);
+
+
+// # Object
+// 속성업데이트 
+//*
+// const o = {prop1: "foo", prop2: "bar", prop3: "baz"};
+// const r = {...o, prop2: null} // ...o: 기존 Object의 속성들
+
+// console.log(r)
+
+// 속성추가
+//*
+// const o = {prop1: "foo", prop2: "baz"};
+// const r = {...o, prop3: "baz"};
+
+// console.log(r);
+
+// Q. duchBeer에 현재 이용가능한 맥주인지를 나타내는 새로운 속성
+// availalbe : true를 추가해보세요.
+// (Object의 Spread 문법 사용)
+//*
+// const dutchBeer = {name: "Heineken", origin: "Netherlands"}
+
+// console.log({...dutchBeer, available : true});
+
+//*
+// const dutchBeer = {name: "Heineken", origin: "Netherlands"}
+// const available = {...dutchBeer, available: true};
+
+// console.log(available)
+
+// Q. the Guinness beer is available right now. 
+// Change the available of Guinness beer to true use by map mathod and Spread 
+// (map() method & use Spread)
+// const beers = [
+//     {name: "Heineken", origin: "Netherlands", available: true},
+//     {name: "Kloud", origin: "S.Korea", available: true},
+//     {name: "Guinness", origin: "Ireland", available: false}
+// ]
+
+//*
+// const r = beers.map(function (beer) {
+//     return {...beer, available: true}
+// })
+// console.log(r)
+
+// map(callback) callback 내에서도 if/false 사용가능
+
+// beers.map(beer => {
+//     console.log(beer);
+// })
+
+//* 
+// const r = beers.map(beer => {
+//     return {...beer, available: true}
+// })
+
+// console.log(r)
+
+//*
+// const r = beers.map(beer => {
+//     if (beer.name == "Guinness") {
+//         return {...beer, available: true}
+//     }
+//     return beer;
+// })
+
+// console.log(r);
+
+//*
+// const r = beers.map(beer => {
+//     beer.available = true
+//     return beer;
+// })
+// console.log(r)
+
+// # JavaScript 비동기(Asynchronous) 프로그래밍
+// 작업 과정에서 blocking을 다루기 위한 방법이다.
+// 예) 서버로부터 데이터를 요청하는 것과 그 처리
+
+// function f(callback) {
+//     callback()
+// }
+
+// f함수는 동기(synchronous)함수이다
+// 호출된 순서대로 실행한다
+
+// f(() => {
+//     console.log("foo")
+// })
+// console.log("bar")
+
+//setTimeout(callback. ms): ms 후에 callback 실행
+// 대표적인 비동기함수 setTimeout . 
+// setTimeout(() => {
+//     console.log("foo");
+// }, 1000)
+
+//setTimeout; 대표적인 비동기 함수이다. 
+//비동기 함수는 가장 마지막에 실행된다. //foo 
+// setTimeout(() => {
+// console.log("foo");
+// }, 1000)
+// console.log("bar");
+
+// real world 예제
+//서버에게 데이터 요청하기
+// * 비동기 함수
+// 서버에 데이터를 요청하는 함수이다
+// function fetchData(callback) {
+//     const o = {foo: "bar"};
+
+//     setTimeout(() => {
+//         callback(o)
+//     } , 1000)
+// }
+
+// // 데이터를 가져오는데 1초가 걸린다고 가정
+// fetchData(data => {
+//     console.log("data", data)
+// })
+
+// console.log("다른 작업")
+
+// 비동기에서 에러 다루기
+// 서버에 데이터 요펑하는 예제
+
+// function fetchData(id, callback) {
+//     if (id === null) { //!null = false, undefined = true, !""= true
+//         const err = new Error("id is required");
+
+//         setTimeout(() => {
+//             callback(err, null)
+//         }, 0)
+//         return;
+//     }
+
+//     const o = {foo: "bar"};
+
+//     setTimeout(() => {
+//         callback(null, o)
+//     })
+// }
+
+// fetchData(null, (err, data) => {
+//     if (err) {
+//         throw err;
+//     } 
+//     console.log("data", data)
+// })
+
+function fetchData(id, callbacl) {
+    if (!id) {
+        const err = new Error("id is required");
+
+        setTimeout(() => {
+            callback(err,null)
+        }, 0)
+        return;
+    }
+
+    const o = {foo: "bar"};
+
+    setTimeout(() => {
+        callbacl(null, o)
+    })
+}
+// fetchData() 함수 호출
+fetchData("", (err, data) => {
+    if (err) {
+        throw err;
+    }
+    console.log("data", data)
+})
+
+// Whssk Wkwmdsksek anjfksms rjdi wlsWk... 
