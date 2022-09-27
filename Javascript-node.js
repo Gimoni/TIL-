@@ -1952,6 +1952,26 @@
 //     console.error(err);
 // })
 
+// Promise를 사용한 방법
+// fetchData(null)
+// .then(data => { // 데이터를 처리한다
+//     console.log("data", data)
+// })
+// .catch(err => { // 에러 처리
+//     console.error(err);
+// })
+
+// 비동기 함수를 사용한 방법
+// fetchData(null, (err, data) => {
+//     try {
+//         if (err) {
+//             throw err;
+//         }
+//         console.log("data", data)
+//     } catch (error) {
+//         console.error(error)
+//     }
+// })
 
 // Promise의 async/await 문법
 // 비동기 작업을 동기 작업처럼 할 수 있게 만든다.
@@ -1960,19 +1980,23 @@
 // async function fetchData(id) {
 //     if (!id) {
 //         const err = new Error ("id is required")
-//         throw o;
+//         throw err;
 //     }
+
+//     const o = {foo: "bar"}
+//     return o;
 // }
 
 // f()
 // async function f() {
 //     try {
-//         //await 
-//         //await
+//         //await : 비동기 작업이 끝날 때까지 기다린다
+//         //await은 async 함수 내부에서만 사용할 수 있다.
 //         const data = await fetchData("a1");
 //         console.log(data);
 
 //         console.log("NEXT WORK")
+
 //     } catch (error) {
 //         console.error(error)
 //     }
