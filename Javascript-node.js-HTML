@@ -7,32 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <script src="./script.js"></script> -->
+    
+    <!-- <script src="./script1.js"></script> -->
     <!-- <h1>BOM and DOM</h1>
     <p>BOM: Browser Object Model</p>
     <p>DOM: Document Object Model</p>
 
     <script>
         // Browser Object
-        // console.log(window); // window object: web 개발의 시작..!
+        console.log(window); // window object: web 개발의 시작..!
 
-        // window Object의 속성과 메서드는 웹개발에 필요한 툴키트이다.
-        // console.log(window.navigator.geolocation) // 접속한 브라우저의 위치를 알려준다 
-        // console.log(window.screen) // 접속한 유저의 디바이스 화면 정보
-        // console.log(window.location) // 현재 접속한 웹페이지의 정보 (URL 등)
-        // console.log(window.history) // 유저의 웹브라우징에 관한 기록 등
-        // console.log(window.XMLHttpRequest) // AJAX 요청 (서버에 데이터를 요청하는 방법)
-
+        // window Object의 속성과 메서드는 웹개발에 필요한 툴키트이다. 
+        console.log(window.navigator.geolocation) // 접속한 브라우저의 위치를 알려준다.
+        console.log(window.screen) // 접속한 유저의 디바이스 화면 정보
+        console.log(window.location) // 현제 접속한 웹페이지의 정보 (URL 등)
+        console.log(window.XMLHttpRequest) // AJAX 요청 (서버에 데이터를 요청하는 방법)
 
         // Document Object
-        // console.log(window.document) // HTML 문서를 나타냄.
-
-
-
+        console.log(window.document) // HTML 문서를 나타냄.
     </script> -->
 
-
-    <!--<h1>DOM (HTML)에 접근하기 (or it called DOM TREE)</h1>
+    <!-- <h1>DOM (HTML)에 접근하기 (or it called DOM TREE)</h1>
 
     <script>
         console.log(window.document);
@@ -51,7 +46,7 @@
     <script>
         // querySelector(태그이름) 태그이름으로 element를 선택한다
         const ul = document.querySelector("ul");
-        // querySelectorAll(태그이름) 태그이름을 가진 모든 element를 선택한다
+        // querySelector(태그이름) 태그이름을 가진 모든 element를 선택한다
         const li = document.querySelectorAll("li");
 
         console.log(ul);
@@ -59,7 +54,6 @@
         console.log(li[0]);
         console.log(li.length)
     </script> -->
-
 
     <!-- <h1>DOM 선택자</h1>
     <p>id, class</p>
@@ -74,37 +68,94 @@
         // getElementById(id) : id를 가진 element를 선택한다
         const foo = document.getElementById("foo");
         console.log(foo);
+        
+        // getElementByClassName(class): class를 가진 element를 모두 선택한다
+        const items = document.getElementsByClassName("item"); 
 
-        // getElementsByClassName(class): class를 가진 element를 모두 선택한다
-        const items = document.getElementsByClassName("item");
-
-        console.log(items); //HTMLCollection
-        console.log(items[0]);
+        console.log(items); // HTMLCollection
+        console.log(items[0]); 
         console.log(items.length);
 
     </script> -->
 
     <!-- <h1>DOM 선택자</h1>
-    <p>id, class로 선택하기 2 </p>
-
+    <p>id, class로 선택하기 2</p>
+     
     <ul>
         <li id="foo" class="item">foo</li>
         <li class="item">bar</li>
         <li class="item">baz</li>
+    </ul> -->
+
+    <!-- <script>
+        // querySelector(#id): id를 가진 element를 모두 선택한다
+        const items = document.querySelectorAll(".item");
+        console.log(items); // NodeList
+
+        //querySelectorAll(.class): class를 가진 element를 모드 선택한다
+        const item = document.querySelectorAll(".item");
+        console.log(items); //NodeList
+    </script> -->
+    
+    <!-- <script>
+    
+    console.log(isIrishBeerAvaliable); //175
+    </script> -->
+
+    <!-- <h1>DOM 속성(Property)</h1>
+    <p>innerHTML</p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+    </ul> -->
+
+    <!-- <script>
+        const ul = document.querySelector("ul");
+        console.log(ul);
+
+        // element.innerHTML : element 내부의 tree를 문자열로 returng한다. 
+        console.log(ul.innerHTML);
+        console.log(typeof ul.innerHTML);
+    </script> -->
+
+    <ul> </ul>
+
+    <script>
+        const ul = document.querySelector("ul");
+
+        ul.innderHTML = `
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
+        `
+    </script>
+
+    <style>
+        ul {
+            border: 1px solid;
+        }
+        li:first-child {
+            text-decoration: underline;
+        }
+    </style>
+
+    <h1>DOM 속성</h1>
+    <p>style</p>
+
+    <ul>
+        <li>foo</li>
+        <li>bar</li>
+        <li>baz</li>
     </ul>
 
     <script>
-        // querySelector(#id): id를 가진 element를 선택한다
-        const foo = document.querySelector("#foo")
-        console.log(foo);
+        const ul = document.querySelector("ul");
+        const li = document.querySelectorAll("li");
 
-        // querySelectorAll(.class): class를 가진 element를 모두 선택한다
-        const items = document.querySelectorAll(".item");
-        console.log(items); // NodeList
-    </script> -->
-
-
+        console.log(ul.style) // CSSstyleDecoration
+        console.log(li[0].style.textDecoration); // JavaScript에서 CSS에 접급할 수 있다.
+    </script>
 </body>
-</html>
-
-
+</html>ㅍ
