@@ -7,27 +7,32 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <!-- <script src="./script1.js"></script> -->
+    <!-- <script src="./script.js"></script> -->
     <!-- <h1>BOM and DOM</h1>
     <p>BOM: Browser Object Model</p>
     <p>DOM: Document Object Model</p>
 
     <script>
         // Browser Object
-        console.log(window); // window object: web 개발의 시작..!
+        // console.log(window); // window object: web 개발의 시작..!
 
-        // window Object의 속성과 메서드는 웹개발에 필요한 툴키트이다. 
-        console.log(window.navigator.geolocation) // 접속한 브라우저의 위치를 알려준다.
-        console.log(window.screen) // 접속한 유저의 디바이스 화면 정보
-        console.log(window.location) // 현제 접속한 웹페이지의 정보 (URL 등)
-        console.log(window.XMLHttpRequest) // AJAX 요청 (서버에 데이터를 요청하는 방법)
+        // window Object의 속성과 메서드는 웹개발에 필요한 툴키트이다.
+        // console.log(window.navigator.geolocation) // 접속한 브라우저의 위치를 알려준다 
+        // console.log(window.screen) // 접속한 유저의 디바이스 화면 정보
+        // console.log(window.location) // 현재 접속한 웹페이지의 정보 (URL 등)
+        // console.log(window.history) // 유저의 웹브라우징에 관한 기록 등
+        // console.log(window.XMLHttpRequest) // AJAX 요청 (서버에 데이터를 요청하는 방법)
+
 
         // Document Object
-        console.log(window.document) // HTML 문서를 나타냄.
+        // console.log(window.document) // HTML 문서를 나타냄.
+
+
+
     </script> -->
 
-    <!-- <h1>DOM (HTML)에 접근하기 (or it called DOM TREE)</h1>
+
+    <!--<h1>DOM (HTML)에 접근하기 (or it called DOM TREE)</h1>
 
     <script>
         console.log(window.document);
@@ -46,7 +51,7 @@
     <script>
         // querySelector(태그이름) 태그이름으로 element를 선택한다
         const ul = document.querySelector("ul");
-        // querySelector(태그이름) 태그이름을 가진 모든 element를 선택한다
+        // querySelectorAll(태그이름) 태그이름을 가진 모든 element를 선택한다
         const li = document.querySelectorAll("li");
 
         console.log(ul);
@@ -54,6 +59,7 @@
         console.log(li[0]);
         console.log(li.length)
     </script> -->
+
 
     <!-- <h1>DOM 선택자</h1>
     <p>id, class</p>
@@ -68,42 +74,52 @@
         // getElementById(id) : id를 가진 element를 선택한다
         const foo = document.getElementById("foo");
         console.log(foo);
-        
-        // getElementByClassName(class): class를 가진 element를 모두 선택한다
-        const items = document.getElementsByClassName("item"); 
 
-        console.log(items); // HTMLCollection
-        console.log(items[0]); 
+        // getElementsByClassName(class): class를 가진 element를 모두 선택한다
+        const items = document.getElementsByClassName("item");
+
+        console.log(items); //HTMLCollection
+        console.log(items[0]);
         console.log(items.length);
 
     </script> -->
 
     <!-- <h1>DOM 선택자</h1>
-    <p>id, class로 선택하기 2</p>
-     
+    <p>id, class로 선택하기 2 </p>
+
     <ul>
         <li id="foo" class="item">foo</li>
         <li class="item">bar</li>
         <li class="item">baz</li>
-    </ul> -->
+    </ul>
 
-    <!-- <script>
-        // querySelector(#id): id를 가진 element를 모두 선택한다
+    <script>
+        // querySelector(#id): id를 가진 element를 선택한다
+        const foo = document.querySelector("#foo")
+        console.log(foo);
+
+        // querySelectorAll(.class): class를 가진 element를 모두 선택한다
         const items = document.querySelectorAll(".item");
         console.log(items); // NodeList
-
-        //querySelectorAll(.class): class를 가진 element를 모드 선택한다
-        const item = document.querySelectorAll(".item");
-        console.log(items); //NodeList
     </script> -->
-    
+
     <!-- <script>
-    
-    console.log(isIrishBeerAvaliable); //175
+
+        // const irishBeer = document.getElementById("irishBeer");
+        // const ifishBeerAvailable = irishBeer.children(2);
+        // console.log(isIrishBeerAvailable);
+        
+        const irishBeer = document.getElementById("irishBeer");
+        const isIrishBeerAvailable = isishBeer.lastElementChild;
+
+        console.log(isIrishBeerAvailable); // #175
+
+
+
     </script> -->
 
-    <!-- <h1>DOM 속성(Property)</h1>
-    <p>innerHTML</p>
+    <!-- <h1>DOM 속성(Property)</h1> -->
+    <!-- <p>innerHTML</p>
 
     <ul>
         <li>foo</li>
@@ -115,24 +131,24 @@
         const ul = document.querySelector("ul");
         console.log(ul);
 
-        // element.innerHTML : element 내부의 tree를 문자열로 returng한다. 
-        console.log(ul.innerHTML);
-        console.log(typeof ul.innerHTML);
+        //element.innerHTML : element내부의 tree를 문자열로 return한다
+        // console.log(ul.innerHTML);
+        // console.log(typeof ul.innerHTML);
     </script> -->
 
-    <ul> </ul>
+    <!-- <ul></ul>
 
     <script>
         const ul = document.querySelector("ul");
 
-        ul.innderHTML = `
+        ul.innerHTML = `
         <li>foo</li>
         <li>bar</li>
         <li>baz</li>
         `
-    </script>
+    </script> -->
 
-    <style>
+    <!-- <style>
         ul {
             border: 1px solid;
         }
@@ -154,8 +170,109 @@
         const ul = document.querySelector("ul");
         const li = document.querySelectorAll("li");
 
-        console.log(ul.style) // CSSstyleDecoration
-        console.log(li[0].style.textDecoration); // JavaScript에서 CSS에 접급할 수 있다.
-    </script>
+        console.log(ul.style) // CSSstyleDecolation
+        console.log(li[0].style) // CSSstyleDecolaton
+
+        console.log(ul.style.border); // JavaScript에서 CSS에 접근할 수 있다
+        console.log(li[0].style.textDecoration); // JacaScript에서 CSS에 접근할 수 있다.
+    </script> -->
+
+   <!-- // friday  -->
+    <!-- <h1>DOM Method</h1>
+    <p>getAttribute</p>
+
+    <ul>
+        <li><a href="Foo" id="foo"></a></li>
+        <li><img src="" alt="Bar" id="bar"></li>
+        <li><input type="text" id="baz" value="Baz"></li>
+    </ul>
+
+    <script>
+        const foo = document.getElementById("foo");
+        const bar = document.getElementById("bar");
+        const baz = document.getElementById("baz");
+
+        // element.getAttribute(attribute): element의 attribute에 접근한다
+        console.log(foo.getAttribute("href")); //Foo
+        console.log(bar.getAttribute("alt")); //Bar
+        console.log(baz.getAttribute("value")); //Baz
+
+    </script> -->
+
+    <!-- <h1>DOM Method</h1>
+    <p>setAttribute</p>
+
+    <ul>
+        <li><a href="" id="foo">Foo</a></li>
+        <li><img src="" alt="" id="bar"></li>
+        <li><input type="text" id="baz"></li>
+    </ul>
+
+    <script>
+        const foo = document.getElementById("foo");
+        const bar = document.getElementById("bar");
+        const baz = document.getElementById("baz");
+
+        // element.setAttribute(attribute, value): element의 attribute에 value를 할당한다.
+        foo.setAttribute("href", "Foo");
+        bar.setAttribute("alt", "Bar");
+        baz.setAttribute("value", "Baz");
+    </script> -->
+
+    <!-- <h1>Event</h1>
+    <p>User's action (유저의 행위)</p>
+
+
+    <button>Button</button>
+
+    <script>
+        const button = document.querySelector("button");
+
+        // element.addEventListener(event, callback): element에 event발생 시 callback을 실행한다.
+        // event: click, keyup, scroll, submit, change, ...
+        button.addEventListener("click", (e) => {
+            // alert();
+            console.log(e) //PointEvent (event object)
+            console.log(e.target) //event가 발생한 element
+            
+        }) 
+    </script> -->
+
+    <!-- <h1>Event</h1>
+    <p>preventDefault</p>
+
+    <a href="http://google.com" target="_blank">Google</a>
+
+    <script>
+        const anchor = document.querySelector("a");
+
+        anchor.addEventListener("click", (e) => {
+            // e.target 의 기본 기능(default)을 실행하지 않는다
+            e.preventDefault();
+
+            console.log(e);
+        })
+    </script> -->
+
+    <!-- <h1>Q. Switch</h1>
+    
+    <button type="button">&#128161</button>
+
+    <script>
+
+        const button = document.querySelector("button");
+
+        button.addEventListener("click", (e) => {
+            console.log("backgroundColor", button.style.backgroundColor);
+            if(button.style.backgroundColor === "yellow") {
+                button.style.backgroundColor = "";
+            }else {
+                button.style.backgroundColor = "yellow";
+            }
+        })
+    </script> -->
+
 </body>
-</html>ㅍ
+</html>
+
+
