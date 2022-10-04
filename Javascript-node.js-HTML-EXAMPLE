@@ -117,8 +117,9 @@
 
     <form action="">
         <input type="" placeholder="예) 기네스, 아일랜드 맥주" required>
-        <button>등록</button>
+        <button type="submit">등록</button>
     </form>
+    <ul></ul>
     <!-- <ul>
         <li>기네스, 아일랜드 맥주</li>
         <li>하이네켄, 네덜란드 맥주</li>
@@ -129,11 +130,18 @@
     </ul> -->
 
     <script>
-        const input = document.querySelector("input");
+        const form = document.querySelector("form");
 
-        intput.addEventListener("input", (e) => {
-            p.textContent = input
+        form.addEventListener("submit", (e) => {
+            e.prventDefault();
+    
+        const input = document.querySelector("input");
+        const ul = document.querySelector("ul");
+        const li = ducument.cerateElement("li");
+
+        li.tectContent = input.value;
+        lu.appendChild(li);
+        input.value = "";
         })
     </script>
 </body>
-</html>
