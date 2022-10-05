@@ -113,35 +113,369 @@
         })
     </script> -->
 
-    <h1>CU 관리자 페이지</h1>
+    <!-- <h1>CU 관리자 페이지</h1>
 
     <form action="">
         <input type="" placeholder="예) 기네스, 아일랜드 맥주" required>
         <button type="submit">등록</button>
     </form>
-    <ul></ul>
-    <!-- <ul>
-        <li>기네스, 아일랜드 맥주</li>
-        <li>하이네켄, 네덜란드 맥주</li>
-        <li>아사히, 일본 맥주</li>
-        <li>클라우드, 한국 맥주</li>
-        <li>대동강, 북한 맥주</li>
-        <li></li>
-    </ul> -->
+    <ul></ul> -->
+   
 
-    <script>
+    <!-- <script>
         const form = document.querySelector("form");
 
         form.addEventListener("submit", (e) => {
-            e.prventDefault();
+            e.preventDefault();
     
         const input = document.querySelector("input");
         const ul = document.querySelector("ul");
-        const li = ducument.cerateElement("li");
+        const li = document.createElement("li");
 
-        li.tectContent = input.value;
-        lu.appendChild(li);
+        li.textContent = input.value;
+        ul.appendChild(li);
         input.value = "";
-        })
+        }) 
+    
     </script>
+            -->
+
+        <!-- <h1>Accodion</h1>
+
+        <style>
+            button {
+                padding: ;
+                margin: ;
+
+            }
+            
+            p {
+                margin: 0;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+        <div>
+            <button>Tab</button>
+            <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui numquam nihil possimus dolore repellendus eligendi excepturi ullam quia quas blanditiis labore, velit atque id ut laborum. Labore molestiae velit voluptate!</p>
+        </div>
+
+        <script>
+            const button = dovument.querySelector("button");
+
+            button.addEventListener("click", (e) => {
+                // element.nextElementSibling: DOM tree에서 같은 레벨의 바로 다음 element를 선택한다. 
+                // e.target은 button 
+                const p = e.target.nextElementSibling;
+
+                p.classList.toggle("hidden");
+            })
+        </script> -->
+
+        <!-- <h1>Animated Accordion</h1>
+
+        <style>
+            button {
+                padding: 0.5rem;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                border: none;
+                background-color: bisque;
+            }
+            p {
+                margin: 0;
+                overflow: hidden;
+                border: 1px dashed;
+                transition: 0.5s;
+            }
+            .max-h-0 {
+                max-height: 0;
+            }
+            .max-h-20 {
+                max-height: 5rem;
+            }
+        </style>
+
+        <div>
+            <button>Tab</button>
+            <p class="max-h-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, sequi voluptatibus aliquid tenetur quos ipsam eaque aliquam praesentium, debitis numquam autem. Fugit eum distinctio nam maiores veritatis maxime omnis laborum?</p>
+        </div>
+
+        <script>
+            const button = document.querySelector("button")
+
+            button.addEventListener("click", (e) => {
+                const p = e.target.nextElementSibling;
+
+                p.classList.toggle("max-h-0");
+                p.classList.toggle("max-h-20");
+            })
+        </script> -->
+
+        <!-- <h1>Multiple Acordion</h1>
+
+        <style>
+            button {
+                padding: 0.5rem;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                border: none;
+                background-color: bisque;
+            }
+            p {
+                margin: 0;
+                /* overflow: hidden; */
+                border: 1px dashed;
+                transition: 0.5s;
+            }
+            .max-h-0 {
+                max-height: 0;
+            }
+            .max-h-20 {
+                max-height: 5rem;
+            }
+        </style>
+
+        <div>
+            <button>Tab 1</button>
+            <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
+            <button>Tab 2</button>
+            <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
+            <button>Tab 3</button>
+            <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
+        </div>
+
+        <script>
+            const buttons = dovument.querySelectorAll("button");
+
+            console.log(buttons);
+
+            buttons[0].addEventListener("click", (e) => {
+                const p = e.target.nextElementSibling;
+
+                p.classList.toggle("max-h-0");
+                p.classList.toggle("max-h-20");
+            })
+        </script> -->
+
+        
+        <!-- <style>
+            header {
+                border: 1px solid #ddd;
+            }
+            button {
+                padding: 0.5rem;
+                border: none;
+                cursor: pointer;
+                background-color: #fff;
+            }
+            a {
+                display: block;
+                padding: 0.5rem;
+            }
+            a:hover {
+                background-color: #eee;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+
+        <h1>Top navigation</h1>
+
+        <header>
+            <div>
+                <button>=</button>
+            </div>
+            <nav class="hidden">
+                <a href="">Link</a>
+                <a href="">Link</a>
+                <a href="">Link</a>
+                <a href="">Link</a>
+            </nav>
+        </header>
+
+        <script>
+            const button = document.querySelector("button")
+
+            button.addEventListener("click", (e) => {
+                const nav = document.querySelector("new");
+                nav.classList.toggle("hidden");
+            })
+        </script> -->
+        
+        <!-- <style>
+            header {
+                border: 1px solid #ddd;
+            }
+            button {
+                padding: 0.5rem;
+                border: none;
+                cursor: pointer;
+                background-color: #fff;
+            }
+            nav {
+                overflow-y: auto;
+                transition: 0.2s;
+            }
+            a {
+                display: block;
+                padding: o.5rem;
+            }
+            a:hover {
+                background-color: #eee;
+            }
+            .max-h-0 {
+                max-height: 0;
+            }
+            .max-h-20 {
+                max-height: 5rem;
+            }
+        </style>
+
+        <h1>Animated top navigation</h1>
+
+        <header>
+            <div>
+                <button>=</button>
+            </div>
+            <nav class="max-h-0">
+                <a href="">Link</a>
+                <a href="">Link</a>
+                <a href="">Link</a>
+            </nav>
+        </header>
+
+        <script>
+            const button = document.querySelector("button");
+
+            button.addEventListener("click", (e) => {
+                const nav = document.querySelector("nav");
+
+                nav.classList.toggle("max-h-0");
+                nav.classList.toggle("max-h-20");
+            })
+        </script> -->
+
+        
+
+        <!-- <style>
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 15rem;
+                background-color: #fff;
+                z-index: 1;
+                transition: 0.2s;
+            }
+            nav a {
+                display: block;
+                padding: 0.5rem;
+            }
+            nav a:hover {
+                background-color: #eee;
+            }
+            button {
+                border: 1px solid;
+                background-color: transparent;
+                padding: 0.5rem;
+                cursor: pointer;
+            }
+            #overlay {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0 0 0 /0.2);
+            }
+            .left-60 {
+                left: -15rem;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+
+        <div class="">
+            <nav class="-left-60">
+                <a href="">Link</a>
+                <a href="">Link</a>
+                <a href="">Link</a>
+            </nav>
+            <div id="overlay" class="hidden"></div>
+        </div>
+
+        <button>=</button>
+        <h1>Side navigation</h1>
+
+        <script>
+            const button = document.querySelector("button");
+            const nav = document.querySlelector("nav");
+            const overlay = document.getElementById("overlay");
+
+            button.addEventListener("click", (e) => {
+                nav.classList.remove("-left-60");
+                overlay.classList.remove("hidden");
+            })
+
+            overlay.addEventListener("click", (e) => {
+                nav.classList.add("-left-60");
+                overlay.classList.add("hidden");
+            })
+        </script> -->
+
+
+        <!-- JavaScript가 아닌 CSS만을 이용.  -->
+        <h1>Pure CSS Accordion</h1>
+
+        <style>
+            p {
+                display: none;
+            }
+
+            label {
+                background-color: #eee;
+                display: block;
+                padding: 0.5rem;
+                cursor: pointer;
+            }
+            input {  
+                /* remove checkbox */
+                display: none;
+            }
+            /* + 선택자: 같은 레벨의 다음 element  */
+            input:checked + p {
+                display: block;
+            }
+        </style>
+
+        <div class="">
+            <label for="tab1">Tab 1</label>
+            <input type="checkbox" name="" id="tab1">
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, ipsam ut doloremque magnam consectetur quidem tempora laudantium autem quaerat aperiam architecto voluptatem dolorem minus libero nemo beatae, distinctio unde magni?
+            </p>
+        </div>
+
+        <div class="">
+            <label for="tab2">Tab 2</label>
+            <input type="checkbox" name="" id="tab2">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae illo quam expedita, corporis minima voluptatum quae ad omnis rem dolorem repellendus repudiandae illum nihil, odit, magni impedit laudantium maxime? Maiores?
+            </p>
+        </div>
+
+        <div class="">
+            <label for="tab3">Tab 3</label>
+            <input type="checkbox" name="" id="tab3">
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi incidunt voluptates nam eos harum nesciunt reprehenderit doloremque eligendi molestiae exercitationem libero voluptatum veniam sit cumque quos ea, eveniet ad voluptatibus?
+            </p>
+        </div>
 </body>
