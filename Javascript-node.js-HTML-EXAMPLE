@@ -144,11 +144,12 @@
 
         <style>
             button {
-                padding: ;
-                margin: ;
-
+                padding: 0.5rem;
+                width: 100%;
+                text-align: left;
+                cursor: pointer;
+                border: none;
             }
-            
             p {
                 margin: 0;
             }
@@ -182,12 +183,10 @@
                 text-align: left;
                 cursor: pointer;
                 border: none;
-                background-color: bisque;
             }
             p {
                 margin: 0;
                 overflow: hidden;
-                border: 1px dashed;
                 transition: 0.5s;
             }
             .max-h-0 {
@@ -223,7 +222,6 @@
                 text-align: left;
                 cursor: pointer;
                 border: none;
-                background-color: bisque;
             }
             p {
                 margin: 0;
@@ -241,24 +239,29 @@
 
         <div>
             <button>Tab 1</button>
+
             <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
             <button>Tab 2</button>
+
             <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
             <button>Tab 3</button>
+            
             <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
         </div>
 
         <script>
-            const buttons = dovument.querySelectorAll("button");
+            const buttons = document.querySelectorAll("button");
 
             console.log(buttons);
 
-            buttons[0].addEventListener("click", (e) => {
-                const p = e.target.nextElementSibling;
+            for (let i=0; i<buttons.length; i++) {
+                buttons[i].addEventListener("click", (e) => {
+                    const p = e.target.nextElementSibling;
 
-                p.classList.toggle("max-h-0");
-                p.classList.toggle("max-h-20");
-            })
+                    p.classList.toggle("max-h-0");
+                    p.classList.toggle("mac-h-20");
+                })
+            }
         </script> -->
 
         
@@ -432,7 +435,7 @@
 
 
         <!-- JavaScript가 아닌 CSS만을 이용.  -->
-        <h1>Pure CSS Accordion</h1>
+        <!-- <h1>Pure CSS Accordion</h1>
 
         <style>
             p {
@@ -477,5 +480,5 @@
             <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi incidunt voluptates nam eos harum nesciunt reprehenderit doloremque eligendi molestiae exercitationem libero voluptatum veniam sit cumque quos ea, eveniet ad voluptatibus?
             </p>
-        </div>
+        </div> -->
 </body>
