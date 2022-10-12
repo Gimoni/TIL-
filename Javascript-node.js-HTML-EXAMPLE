@@ -163,7 +163,7 @@
         </div>
 
         <script>
-            const button = dovument.querySelector("button");
+            const button = document.querySelector("button");
 
             button.addEventListener("click", (e) => {
                 // element.nextElementSibling: DOM tree에서 같은 레벨의 바로 다음 element를 선택한다. 
@@ -225,7 +225,7 @@
             }
             p {
                 margin: 0;
-                /* overflow: hidden; */
+                overflow: hidden;
                 border: 1px dashed;
                 transition: 0.5s;
             }
@@ -239,13 +239,12 @@
 
         <div>
             <button>Tab 1</button>
-
             <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
-            <button>Tab 2</button>
 
+            <button>Tab 2</button>
             <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
             <button>Tab 3</button>
-            
+
             <p class="max-h-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius ullam quos esse cupiditate ex ea optio vitae nemo necessitatibus id odit reiciendis vel, facere, inventore minima libero magnam quis in?</p>
         </div>
 
@@ -305,7 +304,7 @@
             const button = document.querySelector("button")
 
             button.addEventListener("click", (e) => {
-                const nav = document.querySelector("new");
+                const nav = document.querySelector("nav");
                 nav.classList.toggle("hidden");
             })
         </script> -->
@@ -481,4 +480,272 @@
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi incidunt voluptates nam eos harum nesciunt reprehenderit doloremque eligendi molestiae exercitationem libero voluptatum veniam sit cumque quos ea, eveniet ad voluptatibus?
             </p>
         </div> -->
+
+        <!-- <h1>Modal</h1>
+
+        <style>
+            button {
+                border: none;
+                padding: 0.5rem;
+                background-color: transparent;
+                border: 1px solid;
+                cursor: pointer;
+            }
+            #overlay {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(000/0.2);
+            }
+            #modal {
+                background-color: #fff;
+                width: 20rem;
+                margin: 100px auto 0;
+                padding: 1rem;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+
+        <button>Open</button>
+
+        <div id="overlay" class="hidden">
+            <div id="modal">
+                <h3>Modal Content</h3>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim pariatur facilis mollitia aperiam, dolore omnis asperiores ad facere! Neque quibusdam distinctio nemo voluptatibus modi ipsum inventore cupiditate perferendis tempora. Suscipit.
+                </p>
+            </div>
+        </div>
+
+        <script>
+            const button = document.querySelector("button");
+            const modal = document.getElementById("modal");
+            const overlay = document.getElementById("overlay");
+
+            button.addEventListener("click", (e) => {
+                overlay.classList.remove("hidden");
+            })
+
+            overlay.addEventListener("click", (e) => {
+                // console.log(e.target);
+
+                e.target.classList.add("hidden");
+
+                if (e.target === overlay) {
+                    e.target.classList.add("hidden");
+                }
+            })
+
+        </script> -->
+
+        <!-- <h1>Gallery</h1>
+
+        <style>
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .main {
+                width: 400px;
+                height: 300px;
+                background-color: #ddd;
+                margin-bottom: 0.5rem;
+            }
+            .container {
+                display: flex;
+            }
+            .item {
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+                opacity: 0.8;
+            }
+            .item:hover {
+                opacity: 1;
+            }
+        </style>
+
+        <div class="main">
+            <img id="main-image" src=".../../../img/bunny.jpg" alt="">
+        </div>
+
+        <div class="container">
+            <div class="item">
+                <img src=".../../../img/bunny.jpg" alt="" onclick="f(this)">
+            </div>
+            <div class="item">
+                <img src=".../../../img/cat.jpeg" alt="" onclick="f(this)">
+            </div>
+            <div class="item">
+                <img src=".../../../img/bird.jpeg" alt="" onclick="f(this)">
+            </div>
+            <div class="item">
+                <img src=".../../../img/duck.jpeg" alt="" onclick="f(this)">
+            </div>
+        </div>
+
+        <script>
+            // element의 onclick속성에 함수를 연결한다
+            // element의 attribute를 사용해서 이벤트를 처리한다. 
+            // this 인자는 event가 발생한 element이다. 
+
+            function f(el) {
+                console.log(el);
+                console.log(el.src);
+
+                const mainImage = document.getElementById("main-image");
+                mainImage.src = el.src;
+            }
+        </script> -->
+
+        <!-- <h1>Q. Modal Gallery</h1>
+
+        <style>
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            #overlay {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0 0 0 /0.2);
+            }
+            #modal {
+                width: 300px;
+                height: 400px;
+                background-color: #ddd;
+                margin-bottom: 0.5rem;
+                background-color: #fff;
+                display: block;
+                margin: 100px auto;
+            }
+            .container {
+                display: flex;
+            }
+            .item {
+                width: 100px;
+                height: 100px;
+                cursor: pointer;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+
+        <div id="overlay" class="hidden">
+            <img src="" alt="" id="modal">
+        </div>
+
+        <div class="container">
+            <div class="item">
+                <img src=".../../../img/bunny.jpg" alt="" onclick="f(this)">
+            </div>
+            <div class="item">
+                <img src=".../../../img/bird.jpg" alt="" onclick="f(this)">
+            </div>
+            <div class="item">
+                <img src=".../../../img/cat.jpeg" alt="" onclick="f(this)">
+            </div>
+            <div class="item">
+                <img src=".../../../img/duck.jpeg" alt="" onclick="f(this)">
+            </div>
+        </div>
+
+
+        <script>
+
+            const overlay = document.getElementById("overlay");
+            
+            function f(el) {
+                const modal = document.getElementById("modal");
+                // showed overlay
+                overlay.classList.remove("hidden");
+                // sending Modal img to thumbnail source . modal 이미지에 썸네일의 source를 전달한다.
+                modal.src = el.src;
+
+
+                //overlay를 클릭했을때 modal 종료
+                overlay.addEventListener("click", (e) => {
+
+                    if (e.target === overlay) {
+                        e.target.classList.add("hidden");
+                    }
+                })
+               
+            }
+        </script> -->
+
+        <h1>Carousel</h1>
+        <!-- 회전목마 -->
+
+        <style>
+            .container {
+                width: 200px;
+                height: 200px;
+                background-color: #ddd;
+                display: flex;
+                overflow: hidden;
+            }
+            .item {
+                width: inherit;
+                height: inherit;
+                flex-shrink: 0;
+                transition: 0.2s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+
+        <div class="container">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <button id="prev" onclick="f(-1)" class="hidden">&#10094;</button>
+        <button id="next" onclick="f(1)">&#10095;</button>
+
+        <script>
+            const next = document.getElementById("next");
+            const items = document.querySelectorAll(".item");
+
+            let index = 0;
+
+            function f(x) {
+                //index 값 구하기
+                index += x;
+                console.log(index);
+                
+                // # 이미지 이동하기
+                items[0].style.marginLeft = `-${index * 200}px`;
+
+                // # Button 컨트롤
+
+                // Button를 초기화한다 (Button을 보이게 만든다.)
+                prev.classList.remove("hidden");
+                next.classList.remove("hidden");
+
+                if (index===0) { // 첫번째 이미지일 때 prev버튼을 사라지게 만든다.
+                    prev.classList.add("hidden");
+                }
+
+                if (index === items.length-1) { // 마지막 이미지일 때 next버튼을 사라지게 한다. 
+                    next.classList.add("hidden");
+                }
+            }
+        </script>
+
 </body>
