@@ -1,0 +1,284 @@
+import logo from './logo.svg';
+import './App.css';
+
+export default App;
+
+//JSX inline style attribute
+
+// function App() {
+//   return (
+//     <>
+//       <h2>JSX inline style</h2>
+//       {/* style attribute에 object를 인자로 전달한다*/}
+//       <ul style={{border: 1px }}>  ?????
+//         <li style={{textDecoration: "underline"}}>Foo</li>
+//         <li>bar</li>
+//         <li>baz</li>
+//       </ul>
+//     </>
+//   )
+// }
+
+//JSX 내에서 JS 코드 작성하기
+
+// function App() {
+//   const foo ="Foo";
+
+//   return (
+//     <>
+//       <h2>JSX 내에서 코드 작성하기</h2>
+//       <div>{foo}</div>
+//       <div>{"Ba"+"r"}</div>
+//       <div>{"Baz".valueOf()}</div>
+//     </>
+//   )
+// }
+
+// Q. JavaScript 변수와 inline style을 사용하여 virtualDOM을 완성시켜보세요
+// function App() {
+//   const dutchBeer = "Heineken";
+//   const irishBeer = "Guinness";
+//   const japanBeer = "Asahi";
+
+//   const soldOut = {
+//     textDectoration: "line-through",
+//     color: "#ddd"
+//   }
+
+//   return (
+//     <>
+//     <h2>Beers</h2>
+//         <li>{dutchBeer}</li>
+//         <li style={soldOut}>{irishBeer}</li>
+//         <li>{japanBeer}</li>
+//     </>
+//   )
+// }
+
+//JSX 내에서 조건문 사용하기 
+// 논리연산자, 삼항연산자
+// && (AND) : expr1 && expr2
+// || (OR) : expr1 || expr2
+// ! (NOT)
+// 삼항연산자 (Ternary) : 조건? expr if true : expr if false
+
+// function App() {
+
+//   //&&
+//   console.log(true && 1); //1
+//   console.log(1 && 0); //0
+//   console.log(0 && 1); //0
+//   console.log(0 && false); //0
+
+//   console.log(1>0 && 2>0) //true
+
+//   // ||
+
+//   console.log(1 || true); //1
+//   console.log(1 || 0); //1
+//   console.log(0 && 1); //0
+//   console.log(0 && false); //0   -> 1 true, 0 false
+
+//   return (
+//     <>
+//         <h2>JSX내에서 조건문 사용하기</h2>
+//         <div>{true && "Foo"}</div> 
+//         <div>{false || "Bar"}</div> 
+//         <div>{!true ? "" : "Baz"}</div>
+//     </>
+//   )
+// }
+
+//JSX 내에서 반복문 사용하기
+
+// function App() {
+//   const arr = ["Foo", "Bar", "Baz"];
+
+//   return (
+//     <>
+//       <h2>JSX에서 반복문</h2>
+//       <ul>
+//         {arr.map((item, index) =>(
+//           <li key={index}>{item}</li>
+//         ))}
+//       </ul>
+//     </>
+//   )
+// }
+
+// function App() {
+//   const arr = ["Foo","Bar","Baz"];
+
+//   return (
+//     <>
+//       <h2>JSX에서 반복문</h2>
+//       <ul>
+//         {arr.map((item, index) => (
+//           <li key={index}>{item}</li>
+//         ))}
+//       </ul>
+//     </>
+//   )
+// }
+
+// function App() {
+//   const arr = ["Foo", "Bar", "Baz"];
+
+//   const list = arr.map((item, index) => (
+//     <li key={index}>{item}</li>
+//   ))
+//   return(
+//     <>
+//       <h2>JSX 반복문</h2>
+//       <ul>
+//         {list}
+//       </ul>
+//     </>
+//   )
+// }
+
+// function App() {
+//   const arr = ["Foo", "Bar", "Baz"];
+
+//   const list = arr.map((item, index) => (
+//     <li key={index}>{item}</li>
+//   ))
+
+//   return (
+//     <>
+//       <h2>JSX 반복문</h2>
+//       <ul>
+//         {list}
+//       </ul>
+//     </>
+//   )
+// }
+
+// //화살표함수 중괄호 생략 설명
+// function App() {}
+
+// // // 화살표함수에서 {} (중괄호)가 없으면 화살표 뒤의 값을 return한다
+// // const f = () => "foo"
+
+// // // const f = () => {
+// // //   return "foo"
+// // // }
+
+// // console.log(f())
+
+
+
+
+// //Q. 반복문을 사용해서 맥주 리스트를 출력해보세요 
+
+// const beers = [
+//   {name: "Heineken", origin: "Netherlands"},
+//   {name: "Guinness", origin: "Ireland"},
+//   {name: "Asahi", origin: "Japan"}
+// ]
+
+
+// function App() {
+  
+//   const beers = [
+//     {name: "Heineken", origin: "Netherlands"},
+//     {name: "Guinness", origin: "Ireland"},
+//     {name: "Asahi", origin: "Japan"}
+//   ]
+
+//   const list = beers.map((beers, index) => (
+//     <li key={index}>{beers.name}, {beers.origin}</li>
+//   ))
+
+//   // const list = beers.map((beer,index) => {
+//   //   return <li key={index}>{beer.name}</li>
+//   // })
+
+//   // const list = beers.map((beers, index) => <li key={index}>{beers.name}</li>)
+
+//   return (
+//     <>
+//       <h2>Beers</h2>
+//       <ul>
+//         {list}
+//       </ul>
+//     </>
+//   )
+// }
+
+
+// # COMPONENTS (컴포넌트)
+// 정의: 복잡한 UI를 빌드하기 위한 재사용 가능하고 독립적인 부품
+
+// 컴포넌트 기본 
+// 함수컴포넌터와 클래스 컴포넌트가 있다
+
+// App Components
+// 함수컴포넌트는 기본적으로 함수이다. 
+// function App() {
+
+//   // 코드 작성
+//   console.log("App Loaded!")
+
+//   // VirtualDOM을 return한다
+//   return <h1>App</h1>
+// }
+
+// 컴포넌트의 합성 (Composition)
+// 코드를 재사용한다
+
+// 컴포넌트의 첫글자는 대문자여야 한다.
+// function Foo() {
+//   return <li>Foo</li>
+// }
+// function Bar() {
+//   return <li>Bar</li>
+// }
+// function Baz() {
+//   return <li>Baz</li>
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <ul>
+//         {/*컴포넌트를 합성했다*/}
+//         <Foo/>
+//         <Bar/>
+//         <Baz/>
+//       </ul>
+//     </>
+//   )
+// }
+
+// Q. 맥주표를 table element를 이용해서 완성해보세요.
+//making beer table with components
+
+function DutchBeer() {
+  const dutchBeer = [ {brand: "Guinness"}, {origin: "Netherlands"}, {Available: "Yes"}]
+  return (
+    <>
+        {brand: "Guinness"}, {origin: "Netherlands"}, {Available: "Yes"}
+    </>
+  )
+}
+
+function IrishBeer() {
+  return <div>Heineken</div>
+}
+
+function JapaneseBeer() {
+  return <div>Asahi</div>
+}
+
+function App() {
+  return (
+    <>
+      <h2>Beers</h2>
+
+      <h3>Brand</h3>
+      <DutchBeer.brand/>
+      
+    </>
+  )
+}
