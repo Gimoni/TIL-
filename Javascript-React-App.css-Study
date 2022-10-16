@@ -3,6 +3,90 @@ import './App.css';
 
 export default App;
 
+// function App() {
+//   return <h1>Hello React</h1>
+// }
+
+// # JSX 
+// JavaScript의 확장문법
+// 선언형 문법
+// Babel 이 JSX를 JavaScript Object로 변환한다
+// Babel = JavaScrip이 트랜스컴파일러이다. 
+
+// function App() {
+//   return <h1>Hello React</h1>
+// }
+
+// JSX 없이 Virtual DOM 만들기
+// function App() {
+//   const h1 = React.createElement('h1', 'null', 'Hello React');
+
+//   return h1;
+// }
+
+// # JSX 문법
+// function App() {
+//   return (
+//     <div>
+//       <h2>elements는 하나의 element로 감싸져야 한다</h2>
+//       <div>Foo</div>
+//       <div>Bar</div>
+//       <div>Baz</div>
+//     </div>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <div>
+//       <h2>elements를 하나의 element로 감싸지 않은 경우 에러 발생</h2>
+//       <div>Foo</div>
+//       <div>Bar</div>
+//       <div>Baz</div>
+//     </div>
+//   ) 
+// }
+
+// React.Fragment
+
+// function App() {
+//   return (
+//     // DOM에 element를 추가하지 않고 자식을 그룹화 할 수 있다.
+//     <React.Fragment>
+//       <h2>React.Fragment</h2>
+//       <div>Foo</div>
+//       <div>Bar</div>
+//       <div>Baz</div>
+//     </React.Fragment>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <h2>React.Fragment</h2>
+//       <div>Foo</div>
+//       <div>Bar</div>
+//       <div>Baz</div>
+//     </>
+//   )
+// }
+
+// JSX attribute
+
+// function App() {
+//   return (
+//     <>
+//       <h2>JSX attribute</h2>
+//       <ul>
+//         <li><a href="#" target="_blank">Foo</a></li>
+//         <li><img src="" alt="Bar" /></li>
+//         <li><input type="text" placeholder="Baz" autoComplete="off"/></li>
+//       </ul>
+//     </>
+//   )
+// }
+
 //JSX inline style attribute
 
 // function App() {
@@ -254,31 +338,31 @@ export default App;
 // Q. 맥주표를 table element를 이용해서 완성해보세요.
 //making beer table with components
 
-function DutchBeer() {
-  const dutchBeer = [ {brand: "Guinness"}, {origin: "Netherlands"}, {Available: "Yes"}]
-  return (
-    <>
-        {brand: "Guinness"}, {origin: "Netherlands"}, {Available: "Yes"}
-    </>
-  )
-}
+// function DutchBeer() {
+//   const dutchBeer = [ {brand: "Guinness"}, {origin: "Netherlands"}, {Available: "Yes"}]
+//   return (
+//     <>
+//         {brand: "Guinness"}, {origin: "Netherlands"}, {Available: "Yes"}
+//     </>
+//   )
+// }
 
-function IrishBeer() {
-  return <div>Heineken</div>
-}
+// function IrishBeer() {
+//   return <div>Heineken</div>
+// }
 
-function JapaneseBeer() {
-  return <div>Asahi</div>
-}
+// function JapaneseBeer() {
+//   return <div>Asahi</div>
+// }
 
-function App() {
-  return (
-    <>
-      <h2>Beers</h2>
+// function App() {
+//   return (
+//     <>
+//       <h2>Beers</h2>
 
-      <h3>Brand</h3>
-      <DutchBeer.brand/>
+//       <h3>Brand</h3>
+//       <DutchBeer.brand/>
       
-    </>
-  )
-}
+//     </>
+//   )
+// }
