@@ -339,30 +339,576 @@ export default App;
 //making beer table with components
 
 // function DutchBeer() {
-//   const dutchBeer = [ {brand: "Guinness"}, {origin: "Netherlands"}, {Available: "Yes"}]
 //   return (
-//     <>
-//         {brand: "Guinness"}, {origin: "Netherlands"}, {Available: "Yes"}
-//     </>
+//     <tr>
+//       <td>Heineken</td>
+//       <td>Netherlands</td>
+//       <td>Yes</td>
+//     </tr>
 //   )
 // }
 
 // function IrishBeer() {
-//   return <div>Heineken</div>
+//   return (
+//     <tr>
+//       <td>Guinness</td>
+//       <td>Ireland</td>
+//       <td>No</td>
+//     </tr>
+//   )
 // }
 
 // function JapaneseBeer() {
-//   return <div>Asahi</div>
+//   return (
+//       <tr>
+//         <td>Asahi</td>
+//         <td>Japan</td>
+//         <td>Yes</td>
+//       </tr>
+//   )
 // }
 
 // function App() {
 //   return (
 //     <>
-//       <h2>Beers</h2>
-
-//       <h3>Brand</h3>
-//       <DutchBeer.brand/>
-      
+//       <h1>Beers</h1>
+//       <table>
+//         <thead>
+//           <tr>
+//             <td>Brand</td>
+//             <td>Origin</td>
+//             <td>Available</td>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           <DutchBeer />
+//           <IrishBeer />
+//           <JapaneseBeer />
+//         </tbody>
+//       </table>
 //     </>
 //   )
 // }
+
+// # Props
+// 컴포넌트에 전달되는 인자 (parameter)
+
+// function C(props) { // properties (Object)
+//   console.log(props); // {key: value,...} 
+//   const prop1 = props.prop1;
+
+//   return <li>{prop1}</li>
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <h1>App</h1>
+//       <ul>
+//         {/* C 컴포넌트를 재사용했다 */}
+//         <C prop1="Foo" />
+//         <C prop1="Bar" />
+//         <C prop1="Baz" />
+//       </ul>
+//     </>
+//   )
+// }
+
+// Q. using comfornents to make beers list.
+// function C(props) {
+//   console.log(props);
+//   const prop1 = props.prop1;
+
+//   return <li>{props}</li>
+// }
+
+// function App() {
+//   <>
+//     <h1>Beers</h1>
+//     <ul>
+//       <C prop1="Heineken, Netherlands" />
+//       <C prop1="Guinness, Ireland" />
+//       <C prop1="Asahi, Japan" />
+//     </ul>
+//   </>
+// } // ERROR
+
+// function Beer(props) {
+//   console.log(props);
+
+//   const name = props.name;
+//   const origin = props.origin;
+
+//   return <li>{name}, {origin}</li>
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <h1>Beers</h1>
+//       <ul>
+//         <Beer name="Heineken" origin="Netherlands"/>
+//         <Beer name="Guinness" origin="Ireland"/>
+//         <Beer name="Asahi" origin="Japan"/>
+//       </ul>
+//     </>
+//   )
+// }
+
+// Object props
+
+// function C(props) {
+//   console.log(props);
+
+//   const o = props.o;
+
+//   return (
+//     <ul>
+//       <li>Prop1: {o.prop1}</li>
+//       <li>Prop2: {o.prop2}</li>
+//       <li>Prop3: {o.prop3}</li>
+//     </ul>
+//   )
+// }
+
+// const o = {prop1: "Foo", prop2: "Bar", prop3: "Baz"};
+
+// function App() {
+//   return (
+//     <>
+//       <h1>o</h1>
+//       <C o={o}/>
+//     </>
+//   )
+// }
+
+// Q. 삼항연산자 있음... 
+
+// function Beer(props) {
+//   const beer = props.beer;
+
+//   return (
+//     <ul>
+//       <li>Name: {beer.name}</li>
+//       <li>Origin: {beer.origin}</li>
+//       <li>Available: {beer.available ? "Yes" : "No"}</li>
+//     </ul>
+//   )
+// }
+
+// const irishBeer = {name: "Guinness", origin: "Ireland", Available: "false"};
+
+// function App() {
+//   return (
+//     <>
+//       <h1>Beer</h1>
+//       <Beer beer={irishBeer} />
+//     </>
+//   )
+// }
+
+// Q. 컴포넌트 반복적으로 출력하기
+// JSX 에서 Array.map()를 사용하세요.
+// Object props가 전달이 되겠죠? 
+// const beers = [
+//   {name: "Heineken", origin: "Netherlands"},
+//   {name: "Guinness", origin: "Ireland"},
+//   {name: "Asahi", origin: "Japan"},
+// ]
+
+// const beersList = arr.beers
+
+// function Beer(props) {
+//   console.log(props);
+
+//   return (
+//     <>
+//       <li>{arr.beers}</li>
+//     </>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <h1>Beer</h1>
+//       <
+//     </>
+//   )
+// }
+
+
+// Question - Answer
+
+// const beers = [
+//     {name: "Heineken", origin: "Netherlands"},
+//     {name: "Guinness", origin: "Ireland"},
+//     {name: "Asahi", origin: "Japan"},
+// ]
+
+// function Beer(props) {
+  
+//   const beer = props.beer;
+
+//   return <li>{beer.name}, {beer.origin}</li>
+// }
+
+// function App() {
+
+//   const list = beers.map((beer, index) => (
+//     <Beer key={index} beer={beer} />
+//   ));
+
+//   return (
+//     <>
+//       <h1>Beers</h1>
+//       <ul>
+//         {list}
+//       </ul>
+//     </>
+//   )
+// }
+
+
+// Children props;
+
+// function C(props) {
+//   console.log(props); // console.log --> {children :...}
+//   // children은 속성 키가  children이다. 
+//   const children = props.children;
+
+//   return (
+//     <fieldset>
+//       <legend>C</legend>
+//       {children}
+//     </fieldset>
+//   )
+// }
+
+// function Foo() {
+//   return <div>Foo</div>
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <h1>App</h1>
+//       <C>
+//         {/* {Foo 컴포넌트는 C컴포넌트의 children이다} */}
+//         <Foo />
+//       </C>
+//     </>
+//   )
+// }
+  
+// Q. children props를 이용해서 맥주 리스트를 만들어보세요
+
+// Gimon .. ERROR
+// function Beer(props) {
+//   const children = props.children;
+
+//   return (
+    
+//       {children}
+    
+//   )
+// }
+
+// function DutchBeer() {
+//   return (
+//     <>
+//       <h3>Heineken</h3>    
+//       <p>Dutch beer</p>
+//     </>
+//   )
+
+// }
+
+// function IrishBeer() {
+//   return (
+//     <>
+//       <h3>Guinness</h3>
+//       <p>IrishBeer</p>
+//     </>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <h1>Beers</h1>
+//       <C>
+//       <div style= "border-top:1px solid">
+//       <DutchBeer/>
+//       </div>
+//       <div style= "border-top:1px solid">
+//       <IrishBeer/>
+//       </div>
+//       </C>
+//     </>
+//   )
+// } 
+//Gimon ERROR
+
+// function Beer(props) {
+//   const children = props.children;
+
+//   return (
+//     <div style={{borderTop:"1px solid"}}>
+//       {children}
+//     </div>
+//   )
+// }
+
+// function DutchBeer() {
+//   return (
+//     <>
+//       <h3>Heineken</h3>    
+//       <p>Dutch beer</p>
+//     </>
+//   )
+
+// }
+
+// function IrishBeer() {
+//   return (
+//     <>
+//       <h3>Guinness</h3>
+//       <p>IrishBeer</p>
+//     </>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <h1>Beers</h1>
+//       <Beer>
+//         <DutchBeer/>
+//       </Beer>
+//       <Beer>
+//         <IrishBeer/>
+//       </Beer>
+//     </>
+//   )
+// } 
+// // {need to change and check !}
+
+// // Component tree
+
+// // function Foo(props) {
+// //   const children = props.children;
+
+// //   return (
+// //     <fieldset>
+// //       <legend>Foo</legend>
+// //       {children}
+// //     </fieldset>
+// //   )
+// // }
+// // function Bar(props) {
+// //   const children = props.children;
+
+// //   return (
+// //     <fieldset>
+// //       <legend>Bar</legend>
+// //       {children}
+// //     </fieldset>
+// //   )
+// // }
+// // function Baz() {
+// //   return <div>Baz</div>
+// // }
+
+// // function App() {
+// //   return (
+// //     <Foo>
+// //       <Bar>
+// //         <Baz/>
+// //       </Bar>
+// //     </Foo>
+// //   )
+// // }
+
+// // Q. 
+
+// //Gimon answer ERROR
+// function Beers(props) {
+//   const childern = props.childern
+
+//   return (
+//     <fieldset>
+//       <legend>{Beers}</legend>
+//     </fieldset>
+//   )
+// }
+// function EuropeanBeers(props) {
+//   const childern = props.childern
+
+//   return (
+//     <fieldset>
+//       <legend>European beers</legend>
+//         <li>Heineken</li>
+//         <li>Guinness</li>
+//     </fieldset>
+//   )
+// }
+// function AsianBeers(props) {
+//   const childern = props.childern
+
+//   return (
+//     <fieldset>
+//       <legend>Asian beers</legend>
+//         <li>Asahi</li>
+//         <li>Kloud</li>
+//     </fieldset>
+//   )
+// }
+
+// function App(){
+//   return (
+//     <Beers>
+//       <Beers>
+//         <EuropeanBeers/>
+//       </Beers>
+//       <Beers>
+//         <AsianBeers/>
+//       </Beers>
+//     </Beers>
+//   )
+// }
+//Gimon answer ERROR
+
+// function Beer(props) {
+//   const children = props.children;
+
+//   return (
+//     <div style={{borderTop:"1px solid"}}>
+//       {children}
+//     </div>
+//   )
+// }
+
+// function DutchBeer() {
+//   return (
+//     <>
+//       <h3>Heineken</h3>    
+//       <p>Dutch beer</p>
+//     </>
+//   )
+
+// }
+
+// function IrishBeer() {
+//   return (
+//     <>
+//       <h3>Guinness</h3>
+//       <p>IrishBeer</p>
+//     </>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <>
+//       <h1>Beers</h1>
+//       <Beer>
+//         <DutchBeer/>
+//       </Beer>
+//       <Beer>
+//         <IrishBeer/>
+//       </Beer>
+//     </>
+//   )
+// } 
+// {need to change and check !}
+
+// Component tree
+
+// function Foo(props) {
+//   const children = props.children;
+
+//   return (
+//     <fieldset>
+//       <legend>Foo</legend>
+//       {children}
+//     </fieldset>
+//   )
+// }
+// function Bar(props) {
+//   const children = props.children;
+
+//   return (
+//     <fieldset>
+//       <legend>Bar</legend>
+//       {children}
+//     </fieldset>
+//   )
+// }
+// function Baz() {
+//   return <div>Baz</div>
+// }
+
+// function App() {
+//   return (
+//     <Foo>
+//       <Bar>
+//         <Baz/>
+//       </Bar>
+//     </Foo>
+//   )
+// }
+
+// Q. 
+
+//Gimon answer ERROR
+function Beers(props) {
+  const children = props.children
+
+  return (
+    <fieldset>
+      <legend>Beers</legend>
+      {children}
+    </fieldset>
+  )
+}
+function EuropeanBeers(props) {
+  const children = props.children
+
+  return (
+    <fieldset>
+      <legend>European beers</legend>
+        {children}
+    </fieldset>
+  )
+}
+function AsianBeers(props) {
+  const children = props.children
+
+  return (
+    <fieldset>
+      <legend>Asian beers</legend>
+        {children}
+    </fieldset>
+  )
+}
+
+function App (){
+  return (
+    <Beers>
+      <EuropeanBeers>
+        <ul>
+          <li>Heineken</li>
+          <li>Guinness</li>
+        </ul>
+      </EuropeanBeers>
+      <AsianBeers>
+        <ul>
+          <li>Asahi</li>
+          <li>Kloud</li>
+        </ul>
+      </AsianBeers>
+    </Beers>
+  )
+}
+
