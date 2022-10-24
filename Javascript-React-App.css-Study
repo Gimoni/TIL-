@@ -1,4 +1,4 @@
-import React, {createContext, useContext} from 'react';
+import React, {createContext, useContext, useState} from 'react';
 import './App.css';
 
 export default App;
@@ -1084,7 +1084,7 @@ export default App;
 // # Event
 
 // function App() {
-//   function handleClick(e) {
+//   function (e) {
 //     console.log(e.target);
 //   }
 
@@ -1285,3 +1285,249 @@ export default App;
 //     </form>
 //   )
 // }
+
+
+
+
+//  # DOM 업데이트 (import needed : usecontext)
+// function App() {
+//   // const [state, setState] = useState(initialValue);
+//   // state: 변수 
+//   // setState: state를 업데이트 하는 메서드
+//   // initialValue: state의 초기값
+//   // onClick : Event handler 이벤트를 처리하는 함수. 
+
+//   const [count, setCount] = useState(0);
+
+//   return (
+//     <>
+//       <h1>Count</h1>
+//       <p>{count}</p>
+//       <button onClick={() => setCount(count + 1)}>Add</button>
+//     </>
+//   )
+// }
+
+
+
+
+// state Hook 없이 DOM 업데이트 하기
+// function App() { /* 컴포넌트 */
+//   let count = 0;
+
+//   // DOM을 업데이트 하기 위해서는 virtualDOM을 다시 return해야 한다
+//   // virtualDOM을 다시 return하기 위해서는 컴포넌트를 다시 실행해야 한다. 
+//   // setState는 컴포넌트를 다시 실행한다
+//   // DOM이 업데이트 된다
+//   function handleClick(e) {
+//     count++;
+//     console.log(count);
+//   } /* 이벤트 핸들러로 콘솔에 카운트 출력 DOM에는 업데이트 되지 않는다.*/
+
+//   return ( /* VirtualDom*/
+//     <>
+//       <h1>Count</h1>
+//       <p>{count}</p>
+//       <button onClick={handleClick}>Add</button> 
+//     </>
+//   )
+// }
+
+
+
+
+// 시계
+// function App() {
+//   console.log("App Loaded!");
+//   const initialTime = new Date().toLocaleTimeString();
+//   const [time, setTime] = useState(initialTime);
+
+//   setTimeout(() => {
+//     const updatedTime = new Date().toLocaleTimeString();
+//     setTime(updatedTime);
+//   }, 1000)
+
+//   return (
+//     <>
+//       <h1>시계</h1>
+//       <p>{time}</p>
+//     </>
+//   )
+// }
+
+
+
+
+// Q. 
+// function App() {
+//   const [count, setCount] = useState(0);
+
+//   return (
+//     <>
+//       <h1>Count</h1>
+//       <p>{count}</p>
+//       <button onClick={() => setCount(count - 1)}>-</button>
+//       <button onClick={() => setCount(count + 1)}>+</button>
+//     </>
+//   )
+// }
+
+
+// Q.
+// function App() {
+//   const [subscribe, setSubscribe] = useState(false);
+
+//   return (
+//     <>
+//       <h1>구독과 좋아요 알림설정까지 부탁드려요</h1>
+//       <button onClick={() => setSubscribe (!subscribe)}>
+//         {!subscribe ? "구독하기" : "구독중"}</button>
+//     </>
+//   )
+// } 
+
+
+
+
+// function App() {
+//   const [subscribe, setSubscribe] = useState(false);
+//   console.log(subscribe) // false
+//   // console.log(!subscribe) // ture
+
+//   function handleClick(e) {
+//     // setSubscribe(true) // 함수 작동
+
+//     if (subscribe) { // 구독취소
+//       setSubscribe(false)
+//     } else { // 구독하기
+//       setSubscribe(true)
+//     }
+//   }
+
+//   return (
+//     <>
+//       <h1>구독하기</h1>
+//       <button onClick={handleClick}>
+//         {!subscribe ? "구독하기" : "구독중"}
+//       </button>
+//     </>
+//   )
+// }
+
+// Q. 
+// function App() {
+//   const [subscribe, setSubscribe] = useState(false);
+//   const [subscribers, setSubscribers] = useState(1000);
+
+//   function handleClick(subscribe) {
+//     if (subscribe) {
+//       setSubscribe(false);
+//       setSubscribers(subscribers - 1)
+//     } else {
+//       setSubscribe(true);
+//       setSubscribers(subscribers + 1)
+//     }
+//   }
+
+//   return (
+//     <>
+//       <h1>Subscribe</h1>
+//       <p>구독자 수:{subscribers}</p>
+//       <button onClick={() => handleClick(subscribe)}>
+//       {!subscribe ? "구독하기" : "구독중"}</button>
+//     </>
+//   )
+// }
+
+
+
+// # Form 다루기
+
+// function App(){
+//   const [username, setUsername] = useState("");
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     console.log("username:", username);
+//     setUsername("");
+//   }
+
+//   function handleChange(e) {
+//     const value = e.target.value;
+//     const username = value.trim(); /* trim : value 앞뒤의 공백제거 */
+
+//     setUsername(username);
+//     // !"" // ture 논리연산자 빈문자열에 ! = ture
+//     // !"foo" // false 논리연산자 문자열에 ! = false 
+//   }
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <h1>Login</h1>
+//       <input
+//         type="text"
+//         placeholder="Username"
+//         value={username}
+//         onChange={handleChange} /*input의 value를 출력하고 있다 event handler 확인*/
+//         />
+//       <button 
+//         type="submit"
+//         disabled={!username} /* disabled = {ture} 버튼을 누를 수 없는 상태 */
+//         >
+//        login 
+//       </button>
+//     </form>
+//   )
+// }
+
+// Q.
+// function App() {
+//   const [password, setPassword] = useState("");
+//   const [show, setShow] = useState(false);
+  
+//   function handleSubmit(e){
+//     e.preventDafault();
+//     console.log("username:", username);
+//   }
+
+
+//   return (
+//     <form>
+//       <h1>Login</h1>
+//       <input type="password"
+//       />
+//       <button onClick={()=> handleClick(show)}>
+
+//       </button>
+//     </form>
+//   )
+// }
+
+//Q. Password toggle
+// function App() {
+//   const [type, setType] = useState("password");
+
+//   function handleClick() {
+//     if (type==="password") {
+//       setType("text");
+//     } else {
+//       setType("password");
+//     }
+//   }
+
+//   return (
+//     <form>
+//       <h1>Login</h1>
+//       <input type={type} placeholder="Password" />
+//       <button type= "button" onClick={handleClick}>
+//         {type==="password" ? "Show" : "Hide"}
+//       </button>
+//     </form>
+//   )
+// }
+
+
+
+
+
+
