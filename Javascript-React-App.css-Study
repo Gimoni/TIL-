@@ -1,4 +1,6 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
+import {BrowserRouter as Router, Routes, Route, Link, Outer, useParams, useNavigate} from
+"react-router-dom"
 import './App.css';
 
 export default App;
@@ -1748,5 +1750,211 @@ export default App;
 //     </>
 //   )
 // }
+
+
+// const AuthContext = createContext();
+
+// function AuthProvider({children}) {
+//     // AuthProvider의 children은 user에 접근하능하다
+//     const [user, setUser] = useState(null);
+
+//     function signIn(username) {
+//         setUser(username);
+//     }
+
+//     function signOut() {
+//         setUser(null)
+//     }
+
+//     const value = {user, signIn, signOut};
+
+//     return (
+//         <AuthContext.Provider value={value}>
+//             {children}
+//         </AuthContext.Provider>
+//     )
+// }
+
+// function Home() {
+//     return <h1>Home</h1>
+// }
+
+// function Posts() {
+//     return (
+//         <>
+//             <h1>Posts</h1>
+//             <ul>
+//                 <li>
+//                     <Link to='/post/p1'>Post 1</Link>
+//                 </li>
+//                 <li>
+//                     <Link to='/post/p2'>Post 2</Link>
+//                 </li>
+//             </ul>
+//         </>
+//     )
+// }
+
+// function Post() {
+//     const auth = useContext(AuthContext);
+
+//     const params = useParams();
+//     const postId = params.postId;
+
+//     if (!auth.user) {
+//         return <p>Unauthorized</p>
+//     }
+
+//     return (
+//         <>
+//             <h1>Post</h1>
+//             <p>{postId}</p>
+//         </>
+//     )
+// }
+
+// function NotFound() {
+//     return <h1>404 NotFound</h1>
+// }
+
+// function Login() {
+//     const auth = useContext(AuthContext);
+//     const [username, setUsername] = useState("");
+
+//     function handleSubmit(e) {
+//         e.preventDefault();
+//         auth.signIn(username);
+//     }
+
+//     const loginTemplate = (
+//         <from onSubmit={handleSubmit}>
+//             <h1>Sign in</h1>
+//             <input type="text" onChange={(e) => setUsername(e.target.value)}></input>
+//             <button type="submit">Submit</button>
+//         </from>
+//     )
+
+//     const logoutTmeplate = (
+//         <div>
+//             <h1>Sign out</h1>
+//             <p>{auth.user}</p>
+//             <button onClick={auth.signOut}>Submit</button>
+//         </div>
+//     )
+
+//     return auth.user ? logoutTmeplate : loginTemplate;
+// }
+
+// function App() {
+//     return (
+//         <Router>
+//             <nav>
+//                 <ul>
+//                     <li>
+//                         <Link to="/">Home</Link>
+//                     </li>
+//                     <li>
+//                         <Link to="posts">Post</Link>
+//                     </li>
+//                     <li>
+//                         <Link to="login">Login</Link>
+//                     </li>
+//                 </ul>
+//             </nav>
+//             <AuthProvider>
+//                 <Routes>
+//                     <Route path="/" element={<Home />} />
+//                     <Route path="posts" element={<Posts />} />
+//                     <Route path="post/:postId" element={<Post />} />
+//                     <Route path="login" element={<Login />} />
+//                     <Route path="*" element={<NotFound />} />
+//                 </Routes>
+//             </AuthProvider>
+//         </Router>
+//     )
+// }
+
+
+// # fetch data (데이터 요청하기)
+
+// function App() {
+//     const [count, setCount] = useState(0);
+
+//     // useEffect(Hook)
+//     // 비동기적으로 작동한다
+
+//     // 사용방법
+//     // useEffect(callback) : 컴포넌트가 실행될 때마다 callback이 실행된다
+//     // useEffect(callback, []): 컴포넌트의 최초 실행시에만 callback이 실행된다
+//     // useEffect(callback, [dep1, ...]): 컴포넌트의 최초 실행시, dependency가 
+//     // 업데이트 될 때마다 callback이 실행된다
+
+//     useEffect(() => {
+//         const time = new Date().toLocaleTimeString();
+//         console.log(time);
+//     }, [])
+
+//     return (
+//         <>
+//             <h1>App</h1>
+//             <p>App이 {count}번 렌더링 되었습니다</p>
+//             <button onClick={() => setCount(count + 1)}>App</button>
+//         </>
+
+//     )
+// }
+
+
+
+// API 서버가 2초 뒤에 응답을 준다고 가정한다.
+function fakeApi() {
+    const beers = [
+        {id: "b1", name: "Heineken"},
+        {id: "b2", name: "Guinness"},
+        {id: "b3", name: "Asahi"}
+    ]
+
+    const promise = new Promise((res, rej) => {
+        setTimeout(() => {
+            res(beers)
+        }, 2000)
+    })
+
+    return Promise;
+}
+
+function App() {
+    const [beers, setBeers] = useState(null);
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        fakeApi()
+        .then(data => {
+            setBeers(data)
+        })
+        .catch(error => {
+            setError(error)
+        })
+        .finally(() => setIsLoaded(true))
+    }, [])
+
+    if (error) {
+        return <p>failed to fetch</p>
+    }
+    if (!isLoaded) {
+        return <p>fatching data...</p>
+    }
+    return (
+        <>
+            <h1>Beers</h1>
+            <ul>
+                {beers.map(beer => (
+                    <li key={beer.id}>{beer.name}</li>
+                ))}
+            </ul>
+        </>
+    )
+}
 
 
