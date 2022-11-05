@@ -1662,9 +1662,6 @@ export default App;
 //   const [beers, setBeers] = useState(initialBeers);
 
 //   function deleteBeer(beerId) {
-//     console.log(beerId)
-    
-//     return;
 
 //     const updatedBeers = beers.filter(beer => {
 //       if (beer.id!==beerId) {
@@ -1705,6 +1702,7 @@ export default App;
 //   )
 // }
 
+//
 
 // const initialBeers = [
 //   {id: "b1", name: "Heineken", available: true},
@@ -1750,6 +1748,264 @@ export default App;
 //     </>
 //   )
 // }
+
+// # Beer form: update 
+// const initialBeers = [
+//     {id: "b1", name: "Heineken", available: true},
+//     {id: "b2", name: "Guinness", available: false},
+//     {id: "b3", name: "Kloud", available: true}
+//   ];
+  
+//   function App() {
+//     const [beers, setBeers] = useState(initialBeers);
+  
+//     function editBeer(beerId) {
+//       console.log(beerId);
+
+//       const editedBeers = beers.map(beer => {
+//         if (beer.id===beerId) {
+//             return {...beer, available: !beer.available}
+//         }
+//         return beer;
+//       })
+
+//       setBeers(editedBeers);
+//     }
+  
+//     const beerList = beers.map(beer => (
+//       <li key={beer.id}>
+//         {beer.name} {" "}
+//           <button onClick={() => editBeer(beer.id)}>
+//             {beer.available ? "판매중":"품절"}
+//           </button>
+//       </li>
+//     ))
+  
+//     return (
+//       <>
+//         <h1>Beers</h1>
+//         <form>
+//           <input
+//             type="text"
+//             placeholder="Guinness"
+//             disabled={true}
+//           />
+//           <button 
+//             type="submit"
+//             disabled={true}
+//           >
+//             Add
+//           </button>
+//         </form>
+//         <ul>
+//           {beerList}
+//         </ul>
+//       </>
+//     )
+//   }
+
+// # Beer table all together 
+// const inisialBeers = [
+//     {id: "b1", name: "Heineken", available: true},
+//     {id: "b2", name: "Guinnesss", available: false},
+//     {id: "b3", name: "Kloud", abailable: true}
+// ];
+
+// function App() {
+//     const [beers, setBeers] = useState(inisialBeers);
+//     const [name, setName] = useState("");
+
+//     function handleSubmit(e) {
+//         e.preventDefault();
+
+//         console.log(name);
+
+//         const newBeer = {id: Math.random(), name}
+
+//         console.log(newBeer);
+
+//         const updatedBeers = [...beers, newBeer];
+
+//         console.log(updatedBeers);
+
+//         setBeers(updatedBeers);
+
+//         setName("");
+//     }
+
+//     function handleChange(e){
+//         const name = e.target.value;
+//         setName(name);
+//     }
+
+//     function deleteBeer(beerId) {
+
+//         const updatedBeers = beers.filter(beer => {
+//             if (beer.if!==beerId) {
+//                 return beer;
+//             }
+//         })
+
+//         setBeers(updatedBeers);
+//     }
+
+//     function editBeer(beerId) {
+//         console.log(beerId);
+//     }
+
+
+//     const beerList = beers.map(beer => (
+//         <li key= {beer.id}>
+//             {beer.name} {" "}
+//             <button onClick={() => deleteBeer(beer.id)}>Delete</button>
+//             <button onClick={() => editBeer(beer.id)}>{beer.available ? "판매중":"품절"}</button>
+//         </li>
+//     ))
+
+//     return (
+//         <>
+//             <h1>Beers</h1>
+//             <form onSubmit={handleSubmit}>
+//                 <input
+//                 type="text"
+//                 placeholder="Guinness"
+//                 onChange={handleChange}
+//                 value={name}
+//                 />
+//                 <button 
+//                     type="submit"
+//                     disabled={!name}>
+//                         Add
+//                 </button>
+//             </form>
+//             <ul>
+//                 {beerList}
+//                 <li>
+//                 <button
+//                     type="Delete"
+//                     onChange={deleteBeer}>Delete</button>
+//                 <button
+//                     type={editBeer}
+//                     onChange={editBeer}>{editBeer}</button>
+//                 </li>
+//             </ul>
+//         </>
+//     )
+// } Gimon try
+
+
+//# Beer table all together.. 
+
+//  const initialBeers =[
+//     {id: 'b1', name: "Heineken", available: true},
+//     {id: 'b2', name: "Guinness", available: false},
+//     {id: 'b3', name: "Kloud", available: true},
+//  ];
+
+//  function App() {
+//     // beer (state)
+//     const [beers, setBeers] = useState(initialBeers)
+//     console.log(beers);
+
+//     function addBeer(name) {
+//         const newBeer = {id: Math.random(), name}
+
+//         const updatedBeers = [...beers, newBeer];
+//         //여기서 beers (state) 업데이트: 추가
+//         setBeers(updatedBeers);
+//     }
+
+//     function editBeer(beerId) {
+//         // beer (state) 업데이트: 편집
+//         const editedBeers = beers.map(beer => {
+//             if (beer.id===beerId) {
+//                 return {...beer, available: !beer.available}
+//             }
+//             return beer;
+//         })
+
+//         setBeers(editedBeers);
+//     }
+
+//     function deleteBeer(beerId) {
+//         // beers (state) 업데이트: 삭제
+//         const updatedBeers = beers.filter(beer => {
+//             if (beer.if!==beerId) {
+//                 return beer;
+//             }
+//         })
+
+//         setBeers(updatedBeers);
+//     }
+
+//     const beerList = beers.map(beer => (
+//         <Beer
+//             key={beer.id}
+//             beer={beer}
+//             editBeer={editBeer}
+//             deleteBeer={deleteBeer}
+//         />
+//     ))
+
+//     return (
+//         <>
+//             <h1>Beers</h1>
+//             <form addBeer={addBeer}/>
+//             <ul>
+//                 {beerList}
+//             </ul>
+//         </>
+//     )
+//     }
+
+//     function Form({addBeer}) {
+//         const [name,setName] = useState("");
+        
+//         function handleSubmit(e) {
+//             e.perventDefault();
+//             addBeer(name);
+//             setName("");
+//         }
+
+//         function handleChange(e) {
+//             const name = e.target.value;
+//             setName(name);
+//         }
+    
+//     return (
+//         <form onSubmit={handleSubmit}>
+//             <input
+//                 type="text"
+//                 placeholder="Guinness"
+//                 onChange={handleChange}
+//                 value={name}
+//             />
+//             <button 
+//                 type="submit"
+//                 disabled={!name}
+//             >
+//                 Add
+//             </button>
+//         </form>
+//     )
+//     }
+
+//  function Beer({beer, editBeer, deleteBeer}) {
+//     //name (state)
+//     return (
+//         <li>
+//             {beer.name}
+//             <div>
+//                 <button onClick={() => deleteBeer(beer.id)}>
+//                     Delete
+//                 </button>
+//                 <button onClick={() => editBeer(beer.id)}>
+//                     {beer.available ? "available" : "unavailable"}
+//                 </button>
+//             </div>
+//         </li>
+//     )
+//  }
 
 
 // const AuthContext = createContext();
@@ -1907,54 +2163,54 @@ export default App;
 
 
 // API 서버가 2초 뒤에 응답을 준다고 가정한다.
-function fakeApi() {
-    const beers = [
-        {id: "b1", name: "Heineken"},
-        {id: "b2", name: "Guinness"},
-        {id: "b3", name: "Asahi"}
-    ]
+// function fakeApi() {
+//     const beers = [
+//         {id: "b1", name: "Heineken"},
+//         {id: "b2", name: "Guinness"},
+//         {id: "b3", name: "Asahi"}
+//     ]
 
-    const promise = new Promise((res, rej) => {
-        setTimeout(() => {
-            res(beers)
-        }, 2000)
-    })
+//     const promise = new Promise((res, rej) => {
+//         setTimeout(() => {
+//             res(beers)
+//         }, 2000)
+//     })
 
-    return Promise;
-}
+//     return Promise;
+// }
 
-function App() {
-    const [beers, setBeers] = useState(null);
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+// function App() {
+//     const [beers, setBeers] = useState(null);
+//     const [error, setError] = useState(null);
+//     const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        fakeApi()
-        .then(data => {
-            setBeers(data)
-        })
-        .catch(error => {
-            setError(error)
-        })
-        .finally(() => setIsLoaded(true))
-    }, [])
+//     useEffect(() => {
+//         fakeApi()
+//         .then(data => {
+//             setBeers(data)
+//         })
+//         .catch(error => {
+//             setError(error)
+//         })
+//         .finally(() => setIsLoaded(true))
+//     }, [])
 
-    if (error) {
-        return <p>failed to fetch</p>
-    }
-    if (!isLoaded) {
-        return <p>fatching data...</p>
-    }
-    return (
-        <>
-            <h1>Beers</h1>
-            <ul>
-                {beers.map(beer => (
-                    <li key={beer.id}>{beer.name}</li>
-                ))}
-            </ul>
-        </>
-    )
-}
+//     if (error) {
+//         return <p>failed to fetch</p>
+//     }
+//     if (!isLoaded) {
+//         return <p>fatching data...</p>
+//     }
+//     return (
+//         <>
+//             <h1>Beers</h1>
+//             <ul>
+//                 {beers.map(beer => (
+//                     <li key={beer.id}>{beer.name}</li>
+//                 ))}
+//             </ul>
+//         </>
+//     )
+// }
 
 
