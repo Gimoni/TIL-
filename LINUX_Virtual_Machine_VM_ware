@@ -311,13 +311,13 @@ what is Linux kernel ?  커널은 Linux 운영 체제(OS)의 주요 구성 요�
 
 2-3. <Ubuntu VM>
 
- 	설치후 재부팅 혹시 failed 이 나온다면 - >>> restart guest
-	ubuntu 한영키 조작  : Shfit + Space
+ 	  	설치후 재부팅 혹시 failed 이 나온다면 - >>> restart guest
+	  
+		ubuntu 한영키 조작  : Shift + Space
+		
+		Terminal  : ctrl + alt + T
+		명령어 기반으로 작업.
 	
-	------------------
-
-	Termenal  : ctrl + alt + T
-	명령어 기반으로 작업. 
 	
 	------------------
 	$ sudo apt update // 업데이트 버전확인
@@ -331,7 +331,7 @@ what is Linux kernel ?  커널은 Linux 운영 체제(OS)의 주요 구성 요�
 
 	$ reboot // 다시 시작
 
-	$shutdown -h now // 시스템 종료 
+	$ shutdown -h now // 시스템 종료 
  
  $ history // can check the history of what you typing   
 
