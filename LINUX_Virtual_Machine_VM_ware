@@ -641,6 +641,8 @@ Last login: Thu Feb 16 16:16:04 2023 from 192.168.124.1
 -------------------------------------------
 server chech // 서버가 살아있는지 확인하는 명령어 
 	$ ping (server ip)
+	- how to stop to ping : 
+	ctrl + C 
 -------------------------------------------
 C:\Users\python> ping 192.168.124.131
 
