@@ -1,0 +1,100 @@
+git - 형상관리 툴 
+   - 로컬 레포지토리 
+
+windows 설치 URL    
+https://git-scm.com/download/win
+
+
+git init
+로컬 레포지토리 생성(.git)
+
+git config
+계정 설정
+git config --global user.name "git 허브 가입시 기입한 사용지명"
+   예) git config --global user.name "siyeon0927"
+   
+git config --global user.email "git 허브 가입시 기입한 이메일"
+    예) git config --global user.email "barbie2204@nate.com"
+
+
+스냅샷(SNAPSHOT)
+1) 스테이징 단계 - 소스의 변경사항을 스테이지에 올리는 단계
+git add 파일명, 파일 경로 
+
+예) git add . (모든 변경이 있는 파일)
+
+2) 커밋 단계 - 소스의 변경 사항의 복구 시점
+git commit -m "메모" 파일명, 파일 경로
+
+예) git commit -m "메모" .
+
+
+3) 히스토리 확인
+git log
+
+git log --oneline  (짧게 볼때)
+
+
+참고)
+HEAD -> 현재 시점의 위치 
+master -> 브랜치 명
+
+4) 현재 시점 변경
+git checkout commit아이디
+
+git checkout -  -> 가장 최근 시점으로 복귀
+
+
+----------------------------------------------------------
+브랜치 
+기본 브랜치 master
+
+브랜치 조회
+git branch
+
+브랜치 생성 
+git branch 브랜치명
+   -> 현재 위치하고 있는 브랜치의 소스가 새로 생성되는 브랜치에 복사
+   
+브랜치 이동 
+git checkout 브랜치명
+
+
+브랜치 삭제 
+git branch -d 브랜치명 / 안될때는 강제 삭제 -D
+
+
+브랜치 병합
+git merge 브랜치명
+
+- 현재 브랜치에 merge에 입력한 브랜치 소스가 병합
+
+
+
+원격 레포지토리
+로컬 레포지토리 -> 원격 레포지포리 (github, gitlab, ...)
+
+원격 레포지토리 연결
+git remote add origin 원격 레포지토리 주소
+
+- 기존 원격 레포지토리 삭제 후 다시 등록
+git remote remove origin
+
+로컬 레포지포지 상태 -> 원격 레포지토리 반영
+git push origin 원격 브랜치명
+
+예) git push origin master
+
+
+
+원격 레포지토리 상태 -> 로컬 레포지토리 상태로 동기화
+- 작업 시작전에 소스 동기화 먼저(!!!)
+git pull origin 원격 브랜치명
+
+
+------------------------------------------------------------------------------
+GIT UI 툴
+sourceTree
+
+
+
