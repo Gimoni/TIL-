@@ -801,6 +801,209 @@ g edit 설치
 $ sudo apt update
 $ sudo apt install -y gedit
 
+----------------
+ubuntu에서 
+eclipse 설치하기
+
+ubuntu 파일시스템 project 하위 폴더 software에 
+host에서 eclipse file 붙여 넣기 드래그 가능 
+(eclipse-jee-2022-12-R-linux-gtk-x86_64.tar.gz)
+
+at terminal
+to opt folder
+우분투 터미널에서 vi를 사용해서
+이클립스 설치파일을 opt로 복사 이동시킴 
+ $ cp  eclipse-jee-2022-12-R-linux-gtk-x86_64.tar.gz /opt
+
+확인
+$ cd /opt 
+
+압축풀기
+$ tar xzvf eclipse-jee-2022-12-R-linux-gtk-x86_64.tar.gz
+
+
+
+이클립스 파일로 
+ $ cd eclipse/
+
+이클립스 실행 
+ $ ./eclipse 
+
+바탕화면에 이클립스 바로가기 링크 만들기
+
+이클립스 파일을 드래그로 터미널에서 바탕화면쪽으로 
+이동시키되 마우스드래그를 멈추기전 alt 버튼과 
+우측 마우스버튼을 클릭하여 [여기에 링크만들기] .
+
+
+
+
+-------------------------------------
+
+at  fedor 
+페도라 리눅스 마운트 설정하기
+
+$ sudo fdisk -l 
+: 파티션 테이블 관리자 / 디스크영역확인 
+
+
+포맷...
+
+$ sudo mkfs -t ext4 /dev/nvme0n2
+
+[python@fedora /]$ sudo mkdir project
+
+[python@fedora /]$ ll | grep project
+:wq
+( | : 파이프 명령어)
+
+$ reboot 
+
+$df  
+(마운트 설정확인 )
+마운트설정이 리부팅시 풀린다 
+그래서 마운트를 고정하기
+
+
+vi 에디팅으로 마운트 설정 고정시키기 
+
+[python@fedora ~]$ sudo vi /etc/fstab
+
+-----------------------------------------------
+#
+# /etc/fstab
+# Created by anaconda on Thu Feb 16 07:19:32 2023
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
+#
+# After editing this file, run 'systemctl daemon-reload' to update systemd
+# units generated from this file.
+#
+UUID=6e9fb933-2673-4968-afc7-c1dca86c89ec /                       btrfs   subvol=root,compress=zstd:1 0 0
+UUID=9be8925e-9865-425f-8885-ecafd188b1a9 /boot                   ext4    defaults        1 2
+UUID=6e9fb933-2673-4968-afc7-c1dca86c89ec /home                   btrfs   subvol=home,compress=zstd:1 0 0
+
+
+################
+## /project   ##
+################
+
+/dev/nvme0n2             /project                   ext4    defaults        1 2
+-----------------------------------------------------
+
+두가지 단어를 검색할 때 grep 과 -e 옵션을 사용해서 검색한다
+
+[python@fedora /]$ ll | grep -e opt -e project
+drwxr-xr-x.   1 python python   82  2월 21일  15:24 opt
+drwxr-xr-x.   3 python python 4096  2월 22일  15:05 project
+
+
+
+-------------------------
+
+host 윈도우에서 페도라로 다운로드 파일 복사 
+
+Open Windows PowerShell 
+
+at the folder / shift + right key / open power shell in here(S)
+여기에 파워셸 열기
+
+ D:\02_Software\02_java> dir
+파일 복사 해서 페도라의 project폴더로 복사 시킴
+ D:\02_Software\02_java>> scp *.gz python@192.168.124.131:/project
+
+페도라에서 파일복사 확인하기 
+[python@fedora /]$ cd project
+[python@fedora project]$ ll
+
+[python@fedora project]$ mkdir 01_문서
+[python@fedora project]$ mkdir 02_Software
+[python@fedora project]$ mkdir 03_Src
+
+ $ ll
+
+
+확장자가 .gz인 모든 파일을 02_Software 폴더로 이동  [ $ mv ]
+[python@fedora project]$ mv *.gz 02_Software/
+
+ $ cd
+ $ ll
+  
+$  cd 02_Software/
+$   ll
+
+
+opt로 복사 
+$  cp eclipse-jee-2022-12-R-linux-gtk-x86_64.tar.gz  /opt
+$  ll
+
+opt 로 이동
+$  cd /opt
+$   ll
+$   pwd
+$   ll
+
+압축파일 미리보기
+
+$   tar tzvf eclipse-jee-2022-12-R-linux-gtk-x86_64.tar.gz 
+
+압축해제
+
+$   tar xzvf eclipse-jee-2022-12-R-linux-gtk-x86_64.tar.gz 
+$   ll
+이클립스 파일로 이동
+
+$   cd eclipse
+$   ll
+
+이클립스 실행
+
+$  ./eclipse
+
+desktop 파일 생성
+ 
+ $ cd /usr/share/applications
+
+ $ sudo dnf install gedit  / g edit 설치
+
+ $ sudo gedit eclipse.desktop
+
+[Desktop Entry]
+Name=eclipse
+Type=Application
+Exec=/opt/eclipse/eclipse
+Icon=/opt/eclipse/icon.xpm
+
+ 저장 닫기 
+
+페도라에서 이클립스아이콘 확인하기
+
+
+<open the eclipse>
+
+
+project > 03_Src > java [LUANCH]
+
+
+open the eclipse
+  - open perspective / Java / open
+
+file - new - java project 
+- project name : chap01
+- unchecked Module
+
+[finish]
+
+chap01 > src > new > java class >
+- name: Hello
+- checked public static void main(String[] args)
+
+[finish]
+
+//// when you use eclipse , eclipse do the compailing for you
+so you dont need to compile everytime just save the file that's it.
+
 
 
 
