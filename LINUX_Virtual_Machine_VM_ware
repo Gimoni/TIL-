@@ -1,0 +1,1850 @@
+
+[ LINUX ]
+
+LINUX = OS (OPERATING SYSTEM) 무료 오픈소스 운영체제
+Linux is a free, open source operating system
+
+
+강의자료
+WikiDoce 온라인 도서 활용
+ 
+ wikidoce 공개책  "빅데이터" 책검색
+-"빅데이터 IoT 개발자환경 구축" - seo
+
+https://wikidocs.net/133084
+
+
+1. < 개발PC 환경 구성 >
+
+[ PC 사양 확인 ]
+윈도우 설정
+윈도우 설정 - 시스템
+정보 탭을 클릭하여 운영체제, CPU, RAM에 대한 정보를 확인
+
+ - PC 사양 확인
+cpu
+ram 16gb (개발 환경에서 16gb 이상을 권장. 32gb 추천.. )
+
+
+Step 2 - HDD(1T) 파티션 조정 // 보류;
+컴퓨터관리 열기(compmgmt.msc)
+검색 > compmgmt.msc
+
+디스크 관리
+디스크 기본 -> HDD     (C:)
+디스크 동적 -> SSD ProjectData (D:)
+
+
+ssd 와 hdd의 차이
+
+hdd 물리적 장치 기본 드라이버
+ssd 비교적 안전하고 빠른 동적 / 외장 드라이브 (빠름)
+
+개발 환경구성 정리
+16gb 이상의 RAM, CPU, MEMORY
+1. CPU i5 이상
+2. MEMORY 16GB 이상 (전원이 들어왔을때만 사용되는 메모리 : 휘발성 메모리 But pc동작시 100배이상 빠름 )
+3. HDD : SSD / HDD (25gb/ 1T) (전원이 없더라도 사용되는 메모리 : 저장되는 용량 , SSD 512gb 이상 추천,,)
+
+필요에 따라 디스크의 구역을 나누는 것  - 파티션, 파티셔닝.
+
+
+
+Step 3 - 개발 유저 생성
+제어판 열기
+
+제어판 - 사용자 계정 - 사용자 계정 변경 
+        하나의 컴퓨터에 사용자 계정을 따로 만들어
+        보안 또는 다수 인원의 사용의 원활함을 위해서.
+
+새 계정 생성 - 계정 유형 변경 : 관리자계정으로 설정 / 암호설정
+        Administer setting needed.  - Admin 최고관리자로 설정.
+
+Step 4 - 폴더구조 생성
+C: 드라이브에 opt 폴더 생성
+개발과 관련된 모든 소프트웨어는 opt에 설치해 관리
+
+C: = OS + 소프트웨어가 설치되는 곳.  : opt - 개발 툴을 저장.
+D = 만들어내는 파일들을 저장하는 곳.
+
+D: 드라이브에 프로젝트 관련 폴더 생성
+개발과 관련된 모든 문서, 소스코드는 D: 관련 폴더에 저장하고 관리한다.
+
+1-2. <Git 설치>
+
+- . Git 설치
+Step 1
+Git 다운로드 : www.git-scm.com
+설치파일 [Git-2.39.1-64-bit.exe] Double Click!
+Next Click!
+
+- Git = version control system
+소프트웨어의 버전을 관리하는 툴
+오픈소스 계열에서
+( CSV -> SVC -> git ) 순으로 사용되어옴.
+
+git 설치하기 .
+
+GNU = general public license
+
+\ =  백슬래시 이스케이프 문자..
+
+C: 드라이브 문자
+D: 드라이브 문자 
+
+
+
+2. < Virtual Machine >
+
+
+Virtual Machine 
+1. 정의
+가상 머신(영어: virtual machine, VM)은 컴퓨팅 환경을 소프트웨어로 구현한 것,
+즉 컴퓨터 시스템을 에뮬레이션(가상현실화)하는 소프트웨어다.
+가상머신상에서 운영 체제나 응용 프로그램을 설치 및 실행할 수 있다.
+
+가상화 소프트웨어는 에뮬레이션(가상현실화)하는 소프트웨어.
+에뮬레이션 = 현실과 거의 동일하게 동작하게 만들어 내는 것.
+시뮬레이션 = 앞으로 일어거나 일어날 일을 미리 예측해 보는 것.
+virtual machine,,,,
+
+- Virtual Machine = 가상화를 만들어주는 소프트웨어.  
+VMware 를 사용해서 VM을 만듬. (windows or linux or mac)
+가상pc를 만들어준다. for what ? there's so many reason to use it ..
+
+
+
+
+2. 종류
+
+QEMU
+버추얼박스
+VMware
+그 외 다수
+
+
+3. VMware
+컴퓨터에 설치된 운영체제(호스트OS)안에 가상의 컴퓨터를 만들고,
+그 안에 또 다른 운영체제(게스트OS)를 설치/운영할 수 있도록
+제작된 프로그램
+
+
+- PC에 이미 설치되어 있는Windows를
+호스트 운영체제(Host Operating System, 호스트 OS)라고 부르고,
+- 가상머신에 설치할 그 외의 운영체제를
+게스트 운영체제(Guest Operating System, 게스트OS)라고 부름
+
+Host pc 또는 Host os라고 부름
+- Host os : 물리 머신위에 직접동작하는 os
+- Guest os : additional os pc에 추가적으로 설치할 운영체제
+
+VMware download
+ProjectData (D:) - 02_Software - 01_vmware 
+{VMware-player-full-16.2.5-20904516 }
+
+2-1. <VMware 설치>
+- VMware player install to opt at (C:)
+
+-----------------------------------------------------
+
+2-2. <Windows VM>
+- Windows 10 pro 가상머신을 생성한다.
+- Create a New Virtual Machine - Click!
+  
+-------------------
+- 1 단계 pc를 먼저 만들고 2 단계로 vm
+
+hard disk size 100
+
+- edit virtual machine settings
+
+memory for this virtual machine 10240
+Step 10
+Memory : 10GB (10240 MB)
+
+Processors  4
+
+  - following the deme in web site.
+-  tip : cursors from host os to VMware ( ctrl + alt ) 
+
+
+
+==================================================================
+
+
+
+개발 pc 환경 구성 
+이론 정리 
+
+C: = > OS + Software 
+
+컴퓨터 기초 지식. 
+SSD - C:
+HDD - D:
+
+작업관리자 통해서 성능탭 확인
+기본앱 = 웹브라우저 등 
+	프로그램 기본 설정 등.
+
+파일탐색기- 파일확장자를 통해서 파일의 속성을 
+	   확인하고 미리보기를 활용해서 
+	   파일의 이미지를 미리 확인한다. 
+
+
+반디집, 반디캠 다운로드
+	반디캠 default 로 다운로드함. (opt에 설치하지 않음)
+	반디캠 캡쳐 및 동영상
+
+V3Lite 다운로드 default로 다운로드함. (opt에 설치하지 않음)
+
+휴지통 - 속성 - 삭제 확인 대화 상자 표시 체크 적용
+
+화면분할기능 활용법
+windows key + Tab = 새 데스크탑 
+화면 이동 
+ctrl + window key + 방향키 = 
+----------------------------------------
+
+컴퓨터 기초 지식
+- 전원 차단 시, 기억 내용이 지워지는 것을 휘발성메모리 (Volatile Memory), 
+지워지지 않는 것을 비휘발성 메모리 (Non-Volatile Memory) 라고 한다.
+RAM : 휘발성 메모리 - 전원이 들어와 있는 동안에만 정보가 기억되고 
+		전원이 나가면 정보가 지워지는 제품 (임시저장공간)
+		시스템의 주기억 장치로 사용. 
+ROM(SSD,HDD) : 비휘발성 메모리 - 컴퓨터의 지시사항을 영구히 저장하는 비휘발성 메모리
+
+-----------------------------------------
+
+program start and run - ROM 에서 RAM으로 복사 실행됨.
+CPU와 RAM, ROM 
+CPU - 두뇌 역할 [ 중앙 처리 장치 ]
+RAM - 단기저장, 기억장치
+ROM - 장기저장, 
+ "폰 노이만 구조" - 폰 노이만 구조는 중앙처리장치(CPU), 
+		메모리, 프로그램 이 세 가지 구성요소로 이루어져 있다. 
+		폰노이만 구조의 디지털 컴퓨터에서는 
+		"저장된 프로그램"(stored-program)의 개념이 도입되었다.
+
+지금 현대의 pc는 전부 폰노이만 구조이다...
+PC에서 --- **CPU와 RAM은 필수. **
+
+------------------------------------------
+
+컴퓨터의 저장 단위, 용량
+
+1byte = 8bit
+.
+.
+..
+
+컴퓨터에서 메모리의 저장공간을 설명할 때 사용하는 단위. 
+1 byte = 1024 byte가 될때 1KB (1킬로바이트)로 나타냄.
+	: 2의 10승으로 1,024KB.
+
+1KB = 1024byte : 2의 10승
+1 MB = 1024 KB : 2의 20승
+1GB = 1024MB : 2의 30승
+1TB = 1024GB : 2의 40승
+*****************************************
+
+개발pc환경구성 HDD(1T) 파티션 조정.
+	파티셔닝 작업.  
+	
+	if you want 200GB partitioning,
+	you can calculate 200*1024 ='204800' 
+
+	컴퓨터관리 - 디스크관리 - 볼륨 축소 / 볼륨 확장
+
+	- 축소된 디스크 이외의 나누어진 디스크를 포멧하고 
+	파일시스템을 생성해서 활성화를 구성한다. 
+
+	- 파일을 구성하고 사용할수있도록 포멧해야함.  (= 볼륨)
+	새 단순볼륨 만들기. 드라이브 문자 할당. 
+	윈도우에서는 기본적으로 NTFS파일 시스템을 사용.
+	할당 단위 크기 대부분 기본값. 
+	볼륨 레이블 - 'ExtraData' 로 작성. (optional)
+
+
+-------------------------------------------
+
+VMware 
+	Delete from disk / completely delete
+	- Change VMware name -
+	Virtual Machine Settings - Options - Virtual machine name
+
+가상머신 VM . 
+	개념 정리
+	Host OS와 Guest OS의 구분.
+	Host OS의 자원을 가져다가 
+	가상공간인 VM에서 Guest OS를 작동시킴.
+	host와 guestOS는 독립적인 PC이다. 
+
+*** VMware 정상종료하는 습관을 가지도록.. 
+--------------------------------------------
+
+
+Linux 이론정리  
+
+운영체제 OS Operating System : 컴퓨터 자원을 효율적으로 관리하기 위한 시스템,
+			     공통된 소프트웨어 플랫폼, 컴퓨터 응용 프로그램 관리자 등 다양함.
+  
+	사용자 응용프로그램 유틸리티 운영체제 하드웨어 
+
+	하드웨어       운영체제/ 사용자      소프트웨어
+
+운영체제 종류 
+	windows macOS Linux UNIX
+
+	실무적으로 많이 
+	사용하는 운영체제  --> UNIX - LINUX - WINDOWS
+
+	what is linux ? 	리눅스는 1991년 9월 17일 리누스 토르발스가 
+			처음 출시한 운영 체제 커널인 리눅스 커널에 기반을
+			 둔 오픈 소스 유닉스 계열 운영 체제 계열이다.
+
+what is Linux kernel ?  커널은 Linux 운영 체제(OS)의 주요 구성 요소
+컴퓨터 하드웨어와 프로세스를 잇는 핵심 인터페이스.
+그리고 두 가지 관리 리소스 사이에서 최대한 효과적으로 통신함.
+
+
+
+
+2-3. <Ubuntu VM>
+
+ 	  	설치후 재부팅 혹시 failed 이 나온다면 - >>> restart guest
+	  
+		ubuntu 한영키 조작  : Shift + Space
+		
+		Terminal  : ctrl + alt + T
+		명령어 기반으로 작업.
+	
+	
+	------------------
+	$ sudo apt update // 업데이트 버전확인
+
+	password 입력 ( 보안상 패스워드 기록이 보이지 않음.)
+	ENTER
+
+	if there's no recently update you can update with
+
+	$ sudo apt upgrade // 업그레이드 설치 
+
+	$ reboot // 다시 시작
+
+	$ shutdown -h now // 시스템 종료 
+ 
+ $ history // can check the history of what you typing   
+
+	-----------------------------
+	[ install compiz at Ubuntu ]
+
+	$ sudo apt install compizconfig-settings-manager
+
+	$ sudo apt install compiz-plugins compiz-plugins-extra 
+
+
+	- 바로가기 .vmx 파일 : 바탕화면에 바로가기 만들고 이름 변경 "big2"
+
+
+
+
+페도라 리눅스 
+리눅스 개요
+우분투/ 페도라 
+
+리눅스 : 개인용 pc를 목적으로 설계된게 아니라
+서버 OS를 구현하기 위한 타겟으로 설계된 소프트웨어
+
+개인용 개발pc에 리눅스를 설치하는 것은 거의 드물다.. 
+
+리눅스의 기초 
+
+	리눅스의 시작과 발전과정
+	GNU 프로젝트
+	리눅스와 유닉스
+	리눅스 배포판
+	리눅스의 특징과 구조
+
+리눅스의 실습 환경 구축
+
+	가상 머신의 이해와 설치
+	페도라 리눅스 다운로드 
+	페도라 리눅스 설치
+
+리눅스 사용의 기초 
+
+	리눅스 윈도 사용
+	리눅스 명령 사용
+
+
+
+ctrl + alt + T 
+: terminal open
+
+python@big2:~$ uname -a
+Linux big2 5.19.0-31-generic #32-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 20 15:20:08 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+python@big2:~$ 
+
+명령어 $ uname(명령어)  - a (all meaning , option)
+
+python@big2:~$ uname
+Linux
+python@big2:~$ uname -a
+Linux big2 5.19.0-31-generic #32-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 20 15:20:08 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+python@big2:~$ 
+
+
+-open man page on ubuntu 
+	open terminal 
+	$ man pwd
+
+- what is man page ?
+A man page (short for manual page) is 
+a form of software documentation usually
+ found on a Unix or Unix-like operating system.
+
+- check kernal version 
+	www.kernal.org 
+
+
+
+리눅스의 기초 
+
+리누스 베네딕트 토르발스 
+Linus Benedict Torvals 개발 
+커널. 
+1991년  
+
+GNU project start
+ 
+GNU : GNU is Not Unix 의 약자..
+ 	GNU는 유닉스와 호환되는 자유 소프트웨어를 개발하는 프로젝트 
+	무료 소프트웨어를 개발하는 프로젝트 (오픈소스)
+	그렇지만 유닉스는 아니다라는 것.
+
+GNU에서 제시하는 라이센스 GPL (General Public License)
+ 	GPL : 오픈소스를 무료사용, 자유롭게 사용 가능 
+	       소스를 제작한 것을 상업적으로 사용하지 못하고
+	       오픈해야 한다는 조건으로 사용
+	
+	
+	- MIT license : 오픈소스 사용 , 소스 제작을 상업적으로 
+			사용할 수 있고 오픈하지 않아도 됨.
+
+- 리눅스와 유닉스 
+리눅스는 유닉스 계열의 운영체제
+리눅스 = 리누스 + 유닉스
+
+
+C 50yrs / C++ 10yrs / java 25yrs / python 25yrs
+
+리눅스 배포판 
+	리눅스 커널 + 응용프로그램으로 구성
+	리눅스 배포판 : 레드헷 계열 , 데비안 계열, 슬랙웨어 계열
+	데비안 (우분투) / 레드헷 (페도라,CentOS) / 슬랙웨어(자바)
+
+리눅스의 특징
+	리눅스는 공개 소프트웨어. 무료사용.
+	유닉스와 완벽한 호환성 유지.
+	서버용 운영체제로 많이 사용.
+	편리한 GUI환경 제공. 
+	
+
+
+< 리눅스의 구조 >
+
+커널: 리눅스의 핵심
+	프로세스 / 메모리/ 파일시스템/ 장치관리
+	컴퓨터의 모든 자원 초기화 및 제어기능 
+	(커넬 : 제어 -> 하드웨어 / CPU RAM HDD
+
+** 셸  : 명령 프롬프트 compmgmt.msc or 터미널 Teminal [사용자 인터페이스]
+	명령해석
+	프로그래밍기능
+	리눅스 기본 셸 : 배시 셸 (리눅스 셸)
+( 개발자로서 잘다루고 이해해야함. )
+
+응용 프로그램 (OFFICIAL NAME : Application / APP) 
+	각종 프로그래밍 개발도구
+	문서 편집 도구
+	네트워크 관련 도구 등
+
+	
+	하드웨어 < 리눅스 커널 < 셸 < 응용프로그램(APP)
+
+
+- 페도라 리눅스 설치 
+	윈도우키는 = super key in Fedora 
+	ctrl + alt  화면 이동 
+	shift + space = 한영키 변환
+
+
+Fedora terminal 
+	$ ls -l   // $ dir  // $ vdir  : 현재 폴더에 있는 파일을 디렉토리하는 것. 
+	$ ls -F // 	' / 폴더 파일 경로 ' ' @ 바로가기 '  ' * 실행가능 파일 '
+	$ man ls    : man page open
+	$ man cd : man page open 
+	$ history
+	$ cd / : 리눅스 / 유닉스에서 최상위 폴더로 이동 
+
+[python@fedora ~]$ 
+	
+	$ pwd  : 현재 디렉토리 // pwd : print working directory 
+	$ cd : change directory : 현재 디렉토리를 디렉토리로 변경한다.
+	$ which clear ( find the program or something you look for : "which")
+	$ passwd : password change 
+	$ sudo passwd root 
+	$ su root 
+	ctrl d : exit
+	$ which passwd
+
+**** 리눅스에서는 드라이버가 나누어져 있지 않고 최상위 폴더인 root 가 존재함 
+	*************  linux or unix : has root ( / ,(slash)) 
+
+root / file system 
+최상위 폴더 리눅스, 유닉스 = / (root)
+	   윈도우 C: D: .. E: ...... 
+
+(windows 에만 있는 개념 ..  cmd   typing =  d: // will go to D: drive
+	윈도우에서 드라이브간 이동은 드라이브를 입력하면 됨. 
+	백슬래시를 기준으로 폴더간의 구분이 가능. (현재 일반 슬래시도 사용가능.) 
+	ex) windows = use backslash /  \C:\x\y\z\a\xxx.txt ) 
+(windows 에 git 을 설치하면 리눅스 명령어인 ls 사용가능 // windows 의 help는 linux의 man page )
+	cmd : dir/S 
+	windows : cls (clear)
+	windows : which clear ( find the program or something you look for : "which")
+	
+
+*  what is sudo ? : super user do
+
+----------------------------------------------------------
+windows = service / linux = daemon
+what is sshd : sshd is a server process of the OpenSSH. 
+	It receives the incoming connections with the help of SSH protocol 
+	and operates as a server for this protocol.
+	ssd 와 hdd의 특징을 합친 저장장치 = back ground service.
+----------------------------------------------------------
+
+- sshd 활성화 
+	$ sudo systemctl status sshd
+	$ sudo systemctl enable sshd
+	$ sudo systemctl start sshd
+	$ sudo systemctl status sshd
+
+----------------------------------------------------------
+
+[python@fedora bin]$ sudo systemctl status sshd
+[sudo] python 암호: 
+○ sshd.service - OpenSSH server daemon
+     Loaded: loaded (/usr/lib/systemd/system/sshd.service; disabled; preset: disabled)
+     Active: inactive (dead)
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+[python@fedora bin]$ sudo systemctl enable sshd
+Created symlink /etc/systemd/system/multi-user.target.wants/sshd.service → /usr/lib/systemd/system/sshd.service.
+[python@fedora bin]$ sudo systemctl status sshd
+○ sshd.service - OpenSSH server daemon
+     Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; preset: disabled)
+     Active: inactive (dead)
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+[python@fedora bin]$ sudo systemctl status sshd
+● sshd.service - OpenSSH server daemon
+     Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; preset: disabled)
+     Active: active (running) since Thu 2023-02-16 16:01:45 KST; 14s ago
+       Docs: man:sshd(8)
+             man:sshd_config(5)
+   Main PID: 3813 (sshd)
+      Tasks: 1 (limit: 11846)
+     Memory: 2.2M
+        CPU: 13ms
+     CGroup: /system.slice/sshd.service
+             └─3813 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+ 2월 16 16:01:45 fedora systemd[1]: Starting sshd.service - OpenSSH server daemon...
+ 2월 16 16:01:45 fedora sshd[3813]: Server listening on 0.0.0.0 port 22.
+ 2월 16 16:01:45 fedora sshd[3813]: Server listening on :: port 22.
+ 2월 16 16:01:45 fedora systemd[1]: Started sshd.service - OpenSSH server daemon.
+[python@fedora bin]$ 
+
+
+--------------------------------------
+
+원격접속하기  windows - linux 
+
+--------------------------------------
+*** at linux 
+
+check ip info //
+
+ip info :  $ ifconfig
+---------------------------------------
+[python@fedora ~]$ ifconfig
+ens160: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.124.131  netmask 255.255.255.0  broadcast 192.168.124.255
+        inet6 fe80::7332:3acd:97ad:2bf4  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:6d:a0:e8  txqueuelen 1000  (Ethernet)
+        RX packets 79  bytes 9822 (9.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 103  bytes 10468 (10.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 23  bytes 2858 (2.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 23  bytes 2858 (2.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+------------------------------------------셸에서 복사한 것을 붙여 넣을때 우측 마우스 클릭. 
+
+windows 에서 linux로 접속 
+
+	ssh (ip address) 
+::::
+
+C:\Users\python>ssh 192.168.124.131
+The authenticity of host '192.168.124.131 (192.168.124.131)' can't be established.
+ECDSA key fingerprint is SHA256:hmYX25W9kwaePJNFSaRFbQKd7OO8Z6NP375RjQOEdZY.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.124.131' (ECDSA) to the list of known hosts.
+python@192.168.124.131's password:
+Last login: Thu Feb 16 16:05:11 2023
+[python@fedora ~]$ pwd
+/home/python
+[python@fedora ~]$ cd /
+[python@fedora /]$ ls
+afs  bin  boot  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[python@fedora /]$ ls -F
+afs/  boot/  etc/   lib@    lost+found/  mnt/  proc/  run/   srv/  tmp/  var/
+bin@  dev/   home/  lib64@  media/       opt/  root/  sbin@  sys/  usr/
+[python@fedora /]$
+로그아웃
+Connection to 192.168.124.131 closed.
+
+C:\Users\python>
+
+/////::: 로그아웃 방법  'ctrl + d'
+/////::: terminal 에서 복사 enter / 붙여넣기 오른쪽 마우스::;;;
+
+-------------------------------------------
+//// windows에서 linux 로그인 
+
+C:\Users\python>ssh 192.168.124.131
+python@192.168.124.131's password:
+Last login: Thu Feb 16 16:16:04 2023 from 192.168.124.1
+[python@fedora ~]$ cd /
+[python@fedora /]$ cd /usr/bin **(절대경로)
+[python@fedora bin]$ ls -lF 
+
+-------------------------------------------
+server chech // 서버가 살아있는지 확인하는 명령어 
+	$ ping (server ip)
+	- how to stop to ping : 
+	ctrl + C 
+-------------------------------------------
+C:\Users\python> ping 192.168.124.131
+
+Pinging 192.168.124.131 with 32 bytes of data:
+Reply from 192.168.124.131: bytes=32 time<1ms TTL=64
+Reply from 192.168.124.131: bytes=32 time<1ms TTL=64
+Reply from 192.168.124.131: bytes=32 time<1ms TTL=64
+Reply from 192.168.124.131: bytes=32 time<1ms TTL=64
+
+Ping statistics for 192.168.124.131:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+-------------------------------
+C:\Users\python> ping (ip number 192.168.124.131) -t
+
+지속해서 서버를 확인 할 수 있다. // 연결이 잘되는지 계속해서 연결상태를 보고받음.  
+---------------------if the server alive, you can get Reply..
+
+
+
+
+-------------------------------------------------------
+윈도우에서 get your ip ----- $ ipconfig
+리눅스에서 get your ip ----- $ ifconfig
+-------------------------------------------------------
+
+C:\Users\python>ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter 이더넷:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::6b68:61a9:4c00:5296%8
+   IPv4 Address. . . . . . . . . . . : 192.168.30.190
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.30.1
+
+Ethernet adapter VMware Network Adapter VMnet1:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::1ce4:c6b:90de:6423%3
+   IPv4 Address. . . . . . . . . . . : 192.168.72.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::435e:d876:3e6f:e483%7
+   IPv4 Address. . . . . . . . . . . : 192.168.124.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+--------------------------------------------------------
+
+< 디렉터리와 파일 사용하기 >
+
+리눅스 파일의 종류와 특징 
+	- 파일의 종류
+	- 디렉터리 계층 구조
+ 	- 절대 결로명과 상대 경로명
+	- 파일과 디렉터리 이름의 규칙
+
+디렉터리 사용 명령 
+	- 현재 디렉터리 확인 (pwd) 
+	- 디렉터리 이동 (cd)
+	- 디렉터리 내용 보기 (ls, dir, vdir) 
+	- 디렉터리 생성. 삭제 (mkdir, rmdir)
+
+파일 사용 명령 
+	- 파일 내용 보기 (cat, more, less, tail)
+	- 파일 복사 ' 이동 ' 삭제 (cp, mv, rm)
+	- 하드 링크 ' 심벌릭 링크 생성 (ln)
+	- 빈 파일 생성 (touch)
+	- 파일 내용 검색 (grep)
+	- 파일 검색 (find, which, whereis)
+
+---------------------------------------------
+리눅스 파일의 종류와 특징
+
+파일의 종류 
+	- 파일 : 관련 있는 정보들의 집합 
+	- 리눅스는 파일을 효과적으로 관리하기 위해 디렉터리를 사용
+	- 파일 시스템 : 디렉터리와 파일로 구성된 전체 집합
+	- 리눅스에서 파일은 사용 목적에 따라 일반 파일, 디렉터리, 심벌릭 링크, 장치 파일로 구분
+
+일반 파일 (Regular File)
+	- 데이터를 저장하는 데 주로 사용 
+	- 각종 텍스트 파일, 실행 파일, 이미지 파일 등 리눅스에서 사용하는 대부분의 파일은 일반 파일에 해당
+	- 실행 파일이나 이미지 파일의 경우 바이너리 형태로 데이터가 저장되어 바이너리 파일이라고 함
+
+디렉터리 (Directory) 
+	- 리눅스에서는 디렉터리도 파일로 취급 
+	- 디렉터리 파일에는 해당 디렉터리에 저장된 파일이나 하위 디렉터리에 대한 정보가 저장
+
+심벌릭 링크 : 바로가기 경로를 저장한 파일
+	- 원본 파일을 대신하여 다른 이름으로 파일명을 지정한 것 (윈도의 바로 가기와 비슷함)
+
+//// 디렉터리와 심벌릭 링크는 metadata 이다.
+
+장치파일 
+	- 리눅스에서는 하드디스크나 키보드 같은 각종 장치도 파일로 취급
+	- 리눅스 시스텝에 부착된 장치를 관리하기 위한 특수파일
+
+
+----------------------------------------------------------
+Linux file type
+
+디렉터리 d / 
+
+숨김파일 - / . 
+장치파일 c or b /// c - char / b - block 
+
+	- ex )))
+*****
+파일의 종류를 확인하는 file 명령 
+	$ file .bashrc
+----------------------------------
+[python@fedora ~]$ file .bashrc
+.bashrc: ASCII text
+----------------------------------
+
+[python@fedora bin]$ cd
+[python@fedora ~]$ cd ll
+-bash: cd: ll: 그런 파일이나 디렉터리가 없습니다
+[python@fedora ~]$ ll
+합계 0
+drwxr-xr-x. 1 python python 0  2월 16일  12:38 공개
+drwxr-xr-x. 1 python python 0  2월 16일  12:38 다운로드
+drwxr-xr-x. 1 python python 0  2월 16일  12:38 문서
+drwxr-xr-x. 1 python python 0  2월 16일  12:38 바탕화면
+drwxr-xr-x. 1 python python 0  2월 16일  12:38 비디오
+drwxr-xr-x. 1 python python 0  2월 16일  12:38 사진
+drwxr-xr-x. 1 python python 0  2월 16일  12:38 서식
+drwxr-xr-x. 1 python python 0  2월 16일  12:38 음악
+[python@fedora ~]$ file zram0
+zram0: cannot open `zram0' (No such file or directory)
+[python@fedora ~]$ cd /
+[python@fedora /]$ ls
+afs  bin  boot  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[python@fedora /]$ cd dev
+[python@fedora dev]$ file zram0
+zram0: block special (252/0)
+[python@fedora dev]$ file vhci
+vhci: character special (10/137)
+
+파일 명령어 /// 
+----------------------------------
+cmd 종료 명령어 : Alt + F4
+
+02-17
+
+1024 = 1GB
+5120 = 5GB
+
+windows - background
+fedora - daemon
+
+----------------------------------------
+
+fedora ip check at terminal 
+	 $ ifconfig (get the ip)
+
+windows connect with fedora ip
+	 $ shh (ip number)
+---------the same id with windows and fedora you can just 
+use shh (ip number  -------
+BUT the original way is....
+*************************
+ 	$ ssh (id)@(ip number)
+*************************
+
+현재 원격연결 상태확인
+	$ sudo systemctl status sshd 
+	$ sudo systemctl enable sshd
+	$ sudo systemctl stop sshd
+	$ sudo systemctl start sshd
+
+*************************
+
+Ubuntu 
+
+open terminal 
+	ctrl + alt + t 
+
+check the ip 
+	$ ifconfig
+
+//// but if there's no config they show up the line which is.. 
+ sudo apt install net-tools
+--------config가 없으면 슈퍼유저 명령어를 사용해서 설치한다.
+apt라는 접속어가 연결해서 다운 설치를 완료한다. 
+
+at Ubuntu
+ 	$ sudo apt install net-tools  
+
+at cmd 
+C:\Users\python> ssh 192.168.124.129
+ssh: connect to host 192.168.124.129 port 22: Connection refused
+
+위의 커넥션 거절의 의미는 우분투에 ssh 서버를 설치해야한다
+
+at Ubuntu
+	$ sudo apt install openssh-server
+
+at Ubuntu 
+	$ sudo systemctl status ssh
+	$ sudo systemctl enable ssh
+	$ sudo systemctl start ssh
+	$ sudo systemctl status ssh 
+
+at cmd 
+ - $ ssh (ubuntu ip / connect to ubuntu 원격)
+ - $ sudo reboot
+
+// $ ping (ip ) /// check ip working tho 
+	$ ping (ip) -t // keep checking 
+------------------ ctrl + C // for stop the ping
+
+---------------------------------------------------
+
+리눅스 디렉터리 계층 구조 
+	- 트리 구조 : 리눅스에서 파일을 효율적으로 
+	관리하기 위해 디렉터리를 계층적으로 구성
+	- 모든 디렉터리의 출발점은 루트(root, 뿌리) 디렉터리이며, 
+	빗금(/, 슬래시)으로 표시
+	
+* super user's name is also root but that is different with / (root, directory ) in Linux 
+
+- / (root) : 리눅스 최상위 디렉터리
+
+what is home directory ? : each user's personal information home / 
+
+	$ uname -a : check the ubuntu/fedora kernel version 
+
+	[폴더] 
+	나자신을 나타내는 것 ---> . 
+	부모를 나타내는 것 ----> ..
+
+	$ ls -l 
+	$ ls -a
+	$ ls -al
+	$ ls -F
+	$ ls -alF
+
+	$ ll (alias)
+	
+	python@big2:~$ alias
+	alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+	alias egrep='egrep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias grep='grep --color=auto'
+	alias l='ls -CF'
+	alias la='ls -A'
+	alias ll='ls -alF'
+	alias ls='ls --color=auto'
+	
+	
+-----------------------------------------------------
+
+상대경로
+
+절대경로 
+
+	$ cd . 
+	$ cd ..
+	$ cd ../../
+	$ tree
+	$ tree -d (showed folder, not files)
+	
+	tree에도 경로를 줄 수 있다.
+	ex ) $ tree -d /boot
+------------------------------
+
+	$ cd %userprofile%
+
+C:\>cd %userprofile%
+
+C:\Users\python>
+
+	$ help tree
+	$ tree 
+	$ tree /f
+	$ tree /a
+
+-----------------------------
+
+working directory list up  
+	$ ls
+
+pin location list up 
+	$ ls /(directory location that u want to list up)
+	ex) 	$ ls /etc 
+
+-----------------------------
+
+change password
+	$ sudo passwd root
+root login 
+	$ su - root
+
+루트 로그인을 하면 $ 가 아니라 # 로 표시. 
+루트 로그아웃 ctrl + D
+
+
+-----------------------------
+
+- 작업 디렉터리 
+	현재 사용 중인 디렉터리를 작업 디렉터리 (working directory) 또는 현재 디렉터리 (current directory)라고 함
+	현재 디렉터리 : '.' 기호로 표시
+	현재 디렉터리 위치 : pwd 명령으로 확인
+
+- 홈 디렉터리
+	각 사용자에게 할당된 디렉터리로 처음 사용자 계정을 만들 때 지정.
+	사용자는 자신의 홈 디렉터리 아래에 파일이나 서브 디렉터리를 생성하며 작업가능
+	홈 디렉터리는  '~' 기호로 표시 : ~user1
+
+절대 경로명과 상대 경로명 
+	경로명 : 파일 시스템에서 디렉터리 계층 구조에 있는 
+		특정 파일이나 디렉터리의 위치 표시 (구분자 : /) 
+
+	절대경로명 : 항상 루트 (/) 디렉터리를 기준으로 시작 
+	
+	상대경로명 : 현재 디렉터리를 기준으로 시작
+
+파일과 디렉터리 이름의 규칙
+	파일과 디렉터리 이름에는 /를 사용할 수 없음
+	.. 알파벳, 숫자, 붙임표(-), 밑줄(_), 점(.) 만사용
+	.. 공백문자 ,@#$%^&*!~ 등 특수문자 사용 안됨
+	.. 영문자의 대소문자를 구별하며 다른 글자로 취급
+	.. 이름이 .(마침표)로 시작하면 숨김 파일로 간주
+
+-------------------------------------------------
+make directory  디렉터리 생성하기 
+	$ mkdir (new directory name.file extension)
+	ex) $mkdir hello.txt
+
+	$chmod u-r name
+	$ chmod u(user)-(mode) (file name) 
+	: changed mode _ user's mode in the file 
+-------------------------------------------------
+
+[python@fedora ~]$ cd name
+[python@fedora name]$ touch xxx.txt
+[python@fedora name]$ ll
+합계 0
+-rw-r--r--. 1 python python 0  2월 17일  14:59 xxx.txt
+[python@fedora name]$ ./xxx.txt
+-bash: ./xxx.txt: 허가 거부
+[python@fedora name]$ ll
+합계 0
+-rw-r--r--. 1 python python 0  2월 17일  14:59 xxx.txt
+[python@fedora name]$ echo "Hello"
+Hello
+[python@fedora name]$ echo "hehe"
+hehe
+[python@fedora name]$ echo "Hello" >> xxx.txt
+[python@fedora name]$ ll
+합계 4
+-rw-r--r--. 1 python python 6  2월 17일  15:01 xxx.txt
+
+$ ls : 현재 디렉터리의 내용 확인
+$ ls -a : 숨김파일 확인하기 ///  -a옵션
+$ ls -F : 파일의 종류 표시하기 /// - F옵션
+
+$ ls -l : 상세한 정보
+
+
+
+
+drwxrwxr-x 2 python python 4096  2월 17 13:09 name
+d 파일종류
+rwxr-xr-x 파일접근권한, 파일소유자, 그룹
+
+$ mkdir [file name]
+$ chmod u(user) -+ (rwx) [file name]
+$ chmod g(group) -+ (rwx) [file name]
+$ chmod o(other) -+ (rwx) [file name]
+
+
+-----------------------------------------------
+
+하드링크 개수 관련
+하드링크 필드 값 number / 
+하드링크는 서로 같은 파일이 만들어진것. 
+같은 파일의 개수가 필드에 표시됨
+파일 안의 내용이 같이 변경이 됨.
+
+하드링크
+	$ ln -s xxx.txt yyy  // create symbolic link 
+	$ echo "Hello World" >> xxx.txt
+	$ echo "Java Python" >> yyy
+	$ cat xxx.txt
+		Hello World
+		Java Python 
+	$ cat yyy
+		Hello World
+		Java Python 
+
+	$ ln xxx.txt 
+
+------------------------------------------------
+소프트링크
+
+$ ll -i (inode info check)
+ 
+what is inode ?
+What is meant by inode?
+By definition, an inode is an index node. 
+It serves as a unique identifier for 
+a specific piece of metadata on a given filesystem. 
+Each piece of metadata describes what we think of as a file. 
+That's right, inodes operate on each filesystem, independent of the others
+
+
+
+ 	$ rm 삭제명령어 
+	$ rm [file name]
+	// remove file
+
+
+< 하드링크와 소프트링크의 차이 >
+소프트 링크는 원본이 삭제될 경우 링크를 사용할 수 없지만, 
+하드 링크는 원본이 삭제되어도 원본과 동일한 내용의 파일을 
+가지고 있으므로, 자원을 공유하면서도 데이터를 안전하게 
+관리하고자 할 때 주로 사용된다.
+
+------------------------------------------
+
+ 	$ ls 와 비슷한 명령어 : $ dir / $ vdir
+
+[ make directory ] 
+	$ mkdir
+	$ mkdir -p
+
+
+[ remove directory]
+	$ rm [file name]	/ remove files or directories
+	$ rmdir [file name]    / remove empty directories
+	$ rm -rf [file name]   /  remove directories and their contents recursively
+			      ignore nonexistent files and arguments, never prompt
+
+	$ rm -r [file name]
+--------------------------------------------
+
+	* : zero or more 전체선택자
+
+	$ ls [특정파일]*(전체)
+	ex) $ ls fs*
+	
+	$ file fstab //
+	$ cat fstab //
+
+	$ grep 
+	$ grep root passwd
+	$ grep bash passwd
+	$ grep nologin passwd
+	$ grep python passwd
+
+	$ cat passwd // 전부 출력
+	$ more passwd // 페이지단위 출력
+	$ less passwd // 줄 단위 출력
+
+
+프로그램한 모든 소스파일은 텍스트파일이다
+바이너리파일 음성 비디오 등등.. 
+binary file / text file 
+
+
+터미널에서 자동완성기능 press Tap button
+
+	$ head [file name] // showed front of file
+	$ head -n [file name]
+	$ head -n 5 [file name]
+
+	$ tail [file name]
+	$ tail -n [file name]
+	$ tail -n 5 [file name]
+	$ tail -f [file name] // counting file change or not. 파일 변경 감시
+		
+[copy]
+	$cp /etc/services . 
+
+[move]
+
+	$ mv  :: rename or move file
+
+
+
+
+빈파일만들기, 수정시간 변경하기 : touch
+
+	touch xxx.txt
+	touch -t 02171824 xxx.txt
+	$ ls --full-time -l
+	touch -t 205010151250.30 xxx.txt
+	$ ls --full-time -l
+
+파일내용 검색 grep 
+
+---------------------------------------------------
+
+		[ Programming ]
+	OS + Network + Security .. etc.. 
+	basic computer knowledge needed.
+
+
+---------------------------------------------------
+
+
+Host / Guest=VM
+
+
+JAVA 
+eclipse설치. 
+
+확장자 exe - windows 용
+
+1. Jdk 설치 windows에서
+Java SE 다운로드 오라클
+
+2. 프로그램 설치 위치 설정 opt
+ 	C:\opt\Java\jdk-17\
+
+
+----------------------------------------
+
+Binary file  / text file 구분
+	
+리눅스
+문서 편집하기
+
+원격접속으로 해서 에디팅을 해야함. 
+
+리눅스 편집기의 종류 
+- GUI 환경인 그놈에서 제공하는 gedit
+- 유닉스에서부터 사용했던 행 편집기(라인 편집기)와 화면 편집기
+
+리눅스 편집기 종류.. 
+행 단위 편집기 ed, ex, sed
+화면 단위 편집기 vi, emacs
+GUI 편집기 gedit
+
+GUI (Graphical user interface) / TUI (Text user interface)
+
+vi 리눅스에서 일반적으로 사용할 수 있는 화면 편집기
+windows에는 vi가 없다 git 설치를 하면 vi 사용가능
+
+cmd - git - vim 
+( vi = vim )
+
+tund on the editer vim 	cmd - git - vim
+turd off the editer vim   	:q + enter
+make the file and text 	:mkr
+save			:w
+save and quit 		:wq
+--------------------------------------
+at cmd ///
+
+C:\Users\python>where vim
+C:\opt\Git\usr\bin\vim.exe
+--------------------------------------
+
+d: - 뒤로가기
+
+del - delet file at windows cmd
+erase -  	''
+
+at cmd 
+	vim a.txt  - making a.txt
+
+명령모드에서 i - 편집모드 insert
+편집모드에서 명령모드로 나올때 esc 
+
+o - 칸추가 insert mode on
+
+
+type a.txt - 화면에 출력 (windows)
+cat a.txt - 화면에 출력 (linux)
+
+리눅스 모드형과 비모드형 편집기
+입력 모드와 명령 모드 구분
+vi 작동법 반드시 숙지하도록 한다 간단한것들은...
+
+모드형 (vi)
+비모드형 (메모장)
+
+vi의 동작모드 
+
+vi시작 명령모드 <---------------> 입력모드
+
+명령모드에서 H J K L = 방향키 역할 *****
+
+줄복사 yy
+줄삭제 dd
+줄붙여넣기 다음줄에 p
+
+dw - 단어삭제
+cw - 단어변경
+i - 커서 앞에 입력한다 (현재 커서 자리에 입력한다.)
+a - 커서뒤에 입력한다 (현재 커서 다음 자리에 입력한다.)
+
+
+-------------------------------
+
+원격연결, 
+ubuntu / fedora 
+
+$ssh python@ip number
+
+pwd
+
+gcc --version
+
+g++ --version
+
+sudo install gcc ? >>???
+
+
+ubuntu apt / fedora yum
+
+sudo apt install vim
+
+
+-------------------------------
+
+vim hello.c
+
+
+#include <stdio.h>
+
+int main() {
+
+
+        printf("Hello C!\n");
+
+
+        return 0;
+
+
+}
+
+gcc -o hello hello.c
+./hello
+cat hello.c
+
+
+
+
+--------------------------------------------
+
+
+
+$vim triangle.cpp
+
+
+#include <iostream>
+using namespace std;
+
+int main(int argc, char **argv) {
+
+        for (int i=0; i<5; i++) {
+                for (int j=0; j<5; j++) {
+                        if (i>=j)
+                                printf("*");
+
+
+                }
+                printf("\n");
+        }
+
+
+        return 0;
+}
+
+$ g++ -o triange triangel.cpp
+$ ./triangle
+
+수정하기 
+
+$vim triangle.cpp
+
+
+#include <iostream>
+using namespace std;
+
+int main(int argc, char **argv) {
+
+        for (int i=0; i<5; i++) {
+                for (int j=0; j<5; j++) {
+                        if (i<=j)
+                                printf("*");
+
+
+                }
+                printf("\n");
+        }
+
+
+        return 0;
+}
+
+$ g++ -o triange triangel.cpp
+$ ./trianglecat 
+
+
+
+----------------------------------
+.bashrc 파일의 코드 줄수를 확인
+$ cat .bashrc | wc -l 
+ 
+.bashrc 문서작성으로 이동	
+$ vi .bashrc
+
+문서의 끝으로 이동
+shift+g // 
+
+입력하기 
+(((-insert-)))
+
+########
+##JAVA##
+########
+
+export JAVA_HOME=/opt/java
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+------------------------------------
+저장하고 나가기
+:wq
+
+.bashrc문서의 꼬리부분
+$tail .bashrc
+
+------------------------------------
+
+
+
+===========명령어로 우분투 파일 복사해서
+불러오기 
+원격 카피 scp
+지우기 rm 
+
+host cmd
+
+D:\02_Software\02_java>scp jdk-17_linux-x64_bin.tar.gz python@192.168.124.129;
+
+
+---------------------------------------------
+host cmd
+
+$ scp jdk-17_linux-x64_bin.tar.gz python@192.168.124.129:
+
+***** $ scp jdk file 사용자@ip address:
+
+------------------------
+
+ubuntu terminal
+
+opt 경로  
+
+$ sudo chown python.python opt
+
+$ ll
+$ cd opt
+$ cp ~/jdk-17_linux-x64_bin.tar.gz
+$ ll
+$ ln -s jdk-17.0.6/ java
+$ ll
+$ exit
+
+ssh python@192.168.124.129
+(login)
+
+$ java -version
+$ javac -version
+$ whereis java
+$ whereis javac
+$ which java
+$ which javac
+------------------------
+
+자바 설치 in Ubuntu
+
+호스트 명령크롬프트
+at host cmd
+
+파일 위치 찾아가기 가기
+$ d:
+$ D:\02_Software\02_java
+
+scp로 우분투 리눅스에 파일 복사
+$ D:\02_Software\02_java>scp jdk-17_linux-x64_bin.tar.gz python@192.168.124.131:
+
+우분투 리눅스에 원격접속
+$ssh python@ip number
+
+opt 폴더의 그룹관리자 변경하기. 
+$ sudo chown python.python opt
+
+opt로 이동 (홈에 있는 파일을 opt로 복사하기 위함)
+$ cd opt
+
+홈에 있는 파일을 opt로 복사하기
+$ cp ~/jdk-17_linux-x64_bin.tar.gz . 
+
+압축풀기
+$ tar xzvf jdk-17_linux-x64_bin.tar.gz 
+
+심벌릭 링크로 만들기 (링크 네임 java)
+$ ln -s jdk-17.0.6/ java
+
+환경변수 설정
+$ cd
+홈으로 이동 
+$ vi .bash_profile
+
+.bashrc 파일의 코드 줄수를 확인
+$ cat .bashrc | wc -l 
+ 
+.bashrc 문서작성으로 이동	
+$ vi .bashrc
+
+문서의 끝으로 이동
+shift+g // 
+
+입력하기 
+(((-insert-)))
+
+########
+##JAVA##
+########
+
+export JAVA_HOME=/opt/java
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+02-21
+
+
+Programming language
+프로그램 언어의 역할 
+사람과 컴퓨터의 대화 도움 
+사람의 언어와 기계어 사이에서 다리 역할 -> 컴파일
+고급 언어와 저급 언어로 구분
+
+사람이 프로그램 언어로 소스 파일을 작성(코드작성)
+
+소스파일로 작성한 언어의 코드 전체를 다른 언어로 
+바꾸어주는 컴파일을 실행한다 이것을 자동으로 
+수행해주는 소프트웨어인 컴파일러를 통해서 컴파일을 한다
+
+컴파일한 기계어파일로 컴퓨터에서 읽고 작동, 출력된다
+
+coding - compiling - printing ?
+
+- 프로그램언어
+	기계(컴퓨터)에게 명령이나 연산을 시킬 목적으로 
+	설계되어 기계와 의사소통을 할 수 있게 해주는 언어.
+
+즉, 사람의 자연어를 기계어로 바꾸어주는 
+컴파일을 통해 컴퓨터에 정보가 전달된다. 
+- 컴파일러는 양방향이 아닌 일방향. 
+사람의 언어인 소스파일을 컴파일러가 컴파일을 통해
+컴퓨터의 언어인 기계어로 변환시켜 전달한다 
+
+what do you mean by programming language?
+- A programming language is an artificial language that 
+can be used to control the behaviour of a machine, 
+particularly a computer. Programming languages, 
+like human languages, are defined through the use of 
+syntactic and semantic rules, to determine structure 
+and meaning respectively.
+
+
+프로그램의 문법에 따라 규칙에 맞추어 자연어를 
+소스파일 형태로 작성한다.
+
+컴파일러가 작성된 소스파일을 컴파일해서
+기계(컴퓨터)에 기계어로 전달하여 작동을 수행시킨다.
+
+고급엄어 = : 프로그램언어 = java c c++ ... js... etc.. 
+	사람이 이해하기 쉽게 작성된 프로그래밍 언어
+저급언어 = 기계어와 어셈블리어를 의미함 
+	기계 중심의 언어, 
+	어셈블리어 : 기계어와 일대일 대응이 되는 컴퓨터 프로그래밍의 저급언어 
+
+
+고급언어 : 컴파일 언어 / 인터프리터 언어 ***
+
+	컴파일 언어와 인터프리터 언어의 같은 특징 
+	: 기계어로 출력함
+
+	컴파일 언어와 인터프리터 언어의 차이점 
+	- 기계어로 변환하는 방식에 따른 차이가 있다. 
+	
+	컴파일 언어 :  소스코드 전체를 cpu가 읽을 수 있는 기계어로 변환 후 
+		      실행하도록 cpu에 전달한다
+		      (=번역)	명령어를 컴파일러를 거쳐서 
+				컴파일해서 기계어로 입력하고 동작을 실행시킨다
+
+	인터프리터 언어 : 바로 번역 및 실행 하도록 cpu에 전달한다
+		      (=통역)	명령어를 입력과 동시에 
+				해서 실행시킨다
+
+- How compiler works 
+	: Source code - (preprocessing) - Compiler - (preprocessing) - Machine code - (preprocessing) - Output
+
+- How interpreter works
+	: Source code - (preprocesing) - Compiler - (preprocessing) - Output
+
+
+
+*** JAVA 는 고급언어이면서 컴파일 언어이다.
+
+자바 소개 
+안드로이드 및 데스크톱 앱/ 웹사이트를 개발하는 핵심언어
+1995년 썬마이크로시스템즈에서 처음 발표
+2010년 오라클에서 썬을 인수, 자바 개발 도구 (JDK) 배포해 기술 지원
+JDK =  The Java Devalopment Kit 
+
+
+자바 특징
+- 윈도우 , 맥os, 리눅스 등 모든 운영체제에서 실행가능
+- 먼저 객체(부품)을 만들고, 객체들을 서로 연결해서 
+  더 큰 프로그램을 완성시키는 객체 지향
+- 메모리 (RAM)를 자동 정리해 메모리 관리에 용이
+- 무료로 다운로드해서 사용할 수 있는 
+  오픈 소스 라이브러리(Open Source Library)가 풍부
+
+자바 = 범용 언어 :  다양한 곳에 어떤 용도든 
+		다양하게 사용할 수 있는 언어
+(but 펌웨어분야는 java에서 제외된다. ) 
+
+JAVA 
+- 간결한 프로그래밍 문법을 제공한다
+- 이식성이 매우 좋다
+- 완전한 객체지향 언어이다
+- 멀티스레드 프로그래밍을 지원한다
+- 다양한 응용 프로그램을 작성할 수 있다.
+- 많은 오픈 소스 라이브러리가 있다.
+
+Java의 가상머신 = JVM 
+
++ 객체지향 언어 : 프로그램을 다수의 객체로 만들고, 
+	이들끼리 서로 상호작용하도록 만드는 프로그래밍 언어
+
+
+JDK 설치 자바개발도구
+Java는 jdk를 반드시 설치해야함.
+
+JDK - open jdk / oracle jdk 두 가지가 있음
+
+open jdk - GPL
+oracle jdk - NGPL
+-------------------------------------------------
+Host에서 jdk 설치
+
+
+03_Src \ java \ chap01 \ 
+
+vim Hello.java
+
+public class Hello {
+
+
+
+
+}
+
+cat Hello.java
+
+$javac Hello.java
+(컴파일 하기 java class 생성) = 바이너리 파일 생성. 
+
+$ where file
+
+$ file Hello.class
+$ file Hello.java
+파일의 유형을 확인할 때 사용  file. 
+
+자바 수행시 명령문 
+
+$ java Hello
+(파일명만 작성 / 확장자를 넣지 않음) 
+
+
+
+
+*** Interface names should be capitalized like class names.
+
+
+- public static void main(String[] args) { 
+
+}  ********** create main method ********
+
+JAVA 
+
+public class Hello {
+	public static main(String[] args) {
+
+
+	}
+}
+
+
+
+- bite code file = class file (compile file)
+
+
+
+-------------------------------------
+
+JAVA -    WORA(Write Once Run Anywhere) 
+	한번 작성하고 어디서든 작동한다
+
+
+바이트코드 파일 
+- 소스파일(.java)을 작성한 후 바이트코드파일(.class)로 컴파일
+
+자바 가상 머신 
+- java 명령어로 자바 가상 머신 (jvm)을 구동시켜 바이트코드 파일(.class)을
+기계어로 번역 및 실행
+- 자바 가상 머신은 운영체제별로 다르게 설치됨
+
+
+jdk
+
+
+ - jre(java runtime Environment)
+ - jvm (java virtual machine)
+
+
+
+------------------------------------------------
+
+자바 설치 in fedora
+호스트 명령크롬프트
+at host cmd
+
+파일 위치 찾아가기 가기
+$ d:
+$ D:\02_Software\02_java
+
+scp로 페도라 리눅스에 파일 복사
+$ D:\02_Software\02_java>scp jdk-17_linux-x64_bin.tar.gz python@192.168.124.131:
+
+페도라 리눅스에 원격접속
+$ssh python@ip number
+
+opt 폴더의 그룹관리자 변경하기. 
+$ sudo chown python:python opt
+
+opt로 이동 (홈에 있는 파일을 opt로 복사하기 위함)
+$ cd opt
+
+홈에 있는 파일을 opt로 복사하기
+$ cp ~/jdk-17_linux-x64_bin.tar.gz . 
+
+압축풀기
+$ tar xzvf jdk-17_linux-x64_bin.tar.gz 
+
+심벌릭 링크로 만들기 (링크 네임 java)
+$ ln -s jdk-17.0.6/ java
+
+환경변수 설정
+$ cd      (home으로 이동)
+$ ll -a
+$ vi .bash_profile
+
+export JAVA_HOME=/opt/java
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+로그아웃
+$ exit
+로그인 
+$ shh 192.168.124.131
+
+실행확인
+$ javac -version
+
+
+윈도우에서 
+자바 파일 페도라리눅스에 복사하기 
+at host cmd
+$ scp Hello.class python@192.168.124.131:~
+
+
+페도라리눅스에서 
+자파 파일 만들고 윈도우로 복사하기
+
+페도라 홈에 test파일 만들기
+mkdir test
+
+$ vim Rectangle.java
+bash: vim: 명령을 찾을 수 없습니다...
+'vim-enhanced' 명령을 제공하는 'vim' 꾸러미를 
+설치하시겠습니까? [N/y] y
+
+페도라리눅스에 vim 설치하기
+$ sudo dnf install vim
+
+자바소스코드파일 만들기
+$ vim Rectangle.java
+
+소스코드 작성
+public class Rectangle {
+
+        public static void main(String[] args){
+
+                System.out.println("##########");
+                System.out.println("#        #");
+                System.out.println("#        #");
+                System.out.println("#        #");
+                System.out.println("#        #");
+                System.out.println("##########");
+
+        }
+
+}
+
+페도라리눅스에서 작성한 소스코드 컴파일
+$ javac Rectangle.java
+
+컴파일 확인하기 
+$ ㅣㅣ 
+
+소스코드 출력하기 
+$ cat Rectangle.java
+
+자바 출력해보기 
+$ java Rectangle
+
+
+windows 에서 리눅스에서 작성한 소스코드 복사
+
+$ scp python@192.168.124.131:~/test/Rectangle.class .
+
+출력해보기
+$ java Rectangle
+
+
+
+
+
+
+=======================
+
+# 빅데이터
+in fedora 
+fedora 한글키 설정 
+
+[python@fedora init.d] $ ll -a
+
+[python@fedora init.d]$ touch xxx
+touch: 'xxx'에 touch 명령 실행 불가: 허가 거부
+[python@fedora init.d]$ sudo touch xxx
+[sudo] python 암호:
+[python@fedora init.d]$ sudo rm xxx
+[python@fedora init.d]$ ll
+
+
+이동하기 /etc/rc.d/
+스크립트파일 만들기
+[python@fedora rc.d]$ sudo vi /etc/rc.d/rc.local
+
+스크립트 파일 만들기 (한영키 키코드설정)
+작성코드
+#!/usr/bin/bash
+
+setkeycode 72 122
+setkeycode 7 123
+
+[python@fedora init.d]$ cat rc.local
+#!/usr/bin/bash
+
+setkeycodes 72 122
+setkeycodes 71 123
+
+수행권한 부여하기 (-rw-r--r--. 1 root root    53  2월 21일  17:01 rc.local)
+[python@fedora init.d]$ sudo chmod u+x rc.local
+
+스크립트 작성하기
+$ sudo vi /lib/systemd/system/rc-local.service
+
+[Install]
+WantedBy=multi-user.target
+
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable rc-local
+$ sudo systemctl start rc-local
+$ sudo systemctl status rc-local
+
+$ reboot
+ 
+
+
+
