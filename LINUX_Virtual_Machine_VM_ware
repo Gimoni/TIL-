@@ -795,7 +795,23 @@ zram0: block special (252/0)
 vhci: character special (10/137)
 
 파일 명령어 /// 
-----------------------------------
+-------------------
+리눅스 파일 , 디렉토리 권한 확인하기 
+
+ex) drwxr-xr-x. 1 python python 0  2월 16일  12:38 사진
+
+d rwx r-x r-x
+
+r (read) 읽기  w (write) 쓰기  x (execute) 실행 권한
+
+ rwx (owner,소유자) rwx (group, 그룹) rwx (other, 다른 사용자)
+
+chmod u+- 
+chmod g+-
+chmod o+-
+
+
+---------------
 cmd 종료 명령어 : Alt + F4
 
 02-17
